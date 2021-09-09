@@ -1,0 +1,49 @@
+{
+  "name": "website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "npm run lint",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "essential-eth": "^0.4.5",
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.2.0",
+    "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "@types/eslint": "7.28.0",
+    "@types/react": "17.0.20",
+    "@types/react-dom": "17.0.2",
+    "@types/styled-components": "^5.1.14",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "husky": "^4.3.0",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.4.0",
+    "prettier-plugin-organize-imports": "^2.3.3",
+    "typescript": "4.4.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run lint"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,scss,md,json,html,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "singleQuote": true
+  }
+}
