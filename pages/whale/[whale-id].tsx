@@ -22,8 +22,10 @@ const WhaleProperty: React.FunctionComponent<{ title: string; value: string }> =
           borderRadius: '6px',
         }}
       >
-        <b>{title}: </b>
-        {value.replace('_', ' ')}
+        <div>
+          <b>{title}</b>
+        </div>
+        <div>{value.replace('_', ' ')}</div>
       </div>
     );
   };
@@ -89,9 +91,15 @@ const Details = ({ whaleTraits }: ServerHydratedProps) => {
                 title={'Background'}
                 value={whaleTraits.Background}
               />
-              <WhaleProperty title={'Eye'} value={whaleTraits.Eye} />
+              <WhaleProperty
+                title={'Eye Accessory'}
+                value={whaleTraits['Eye Accessory']}
+              />
               <WhaleProperty title={'Headgear'} value={whaleTraits.Headgear} />
-              <WhaleProperty title={'Mouth'} value={whaleTraits.Mouth} />
+              <WhaleProperty
+                title={'Mouth Accessory'}
+                value={whaleTraits['Mouth Accessory']}
+              />
               <WhaleProperty title={'Base'} value={whaleTraits.Base} />
             </FlexRow>
             <a
