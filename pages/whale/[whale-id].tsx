@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { weiToEther } from 'essential-eth';
-import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import React, { useEffect } from 'react';
 import { SEO } from '../../components/SEO';
@@ -30,26 +29,29 @@ const WhaleProperty: React.FunctionComponent<{ title: string; value: string }> =
     );
   };
 
-type ServerHydratedProps = {
-  whaleTraits: typeof allTraits[0];
-};
-const Details = ({ whaleTraits }: ServerHydratedProps) => {
+const Details = () => {
   const router = useRouter();
   const whaleID = router.query['whale-id'];
 
   const [lastSalePrice, setLastSalePrice] = React.useState('');
   const [currentOwner, setCurrentOwner] = React.useState('');
   useEffect(() => {
-    axios(`/api/last-sale/${whaleID}`).then((res: any) => {
-      const assetData = res.data as AssetInfoResponse;
-      let lastSale = 'no sale';
-      if (assetData.last_sale?.total_price) {
-        lastSale = `${weiToEther(assetData.last_sale?.total_price)} ETH`;
-        setLastSalePrice(lastSale);
-        setCurrentOwner(assetData.owner.address);
-      }
-    });
-  }, []);
+    if (router.isReady) {
+      axios(`/api/last-sale/${whaleID}`).then((res: any) => {
+        const assetData = res.data as AssetInfoResponse;
+        let lastSale = 'no sale';
+        if (assetData.last_sale?.total_price) {
+          lastSale = `${weiToEther(assetData.last_sale?.total_price)} ETH`;
+          setLastSalePrice(lastSale);
+          setCurrentOwner(assetData.owner.address);
+        }
+      });
+    }
+  }, [router.isReady, whaleID]);
+  if (typeof whaleID === 'undefined') {
+    return null;
+  }
+  const whaleTraits = allTraits[Number(whaleID)];
   return (
     <>
       <SEO
@@ -116,31 +118,6 @@ const Details = ({ whaleTraits }: ServerHydratedProps) => {
   );
 };
 export default Details;
-
-// precompile the entire page server-side
-export const getStaticProps: GetStaticProps<ServerHydratedProps> = async ({
-  params,
-}) => {
-  if (!params) {
-    throw new Error('Missing params, cannot render whale details page');
-  }
-  const whaleID = params['whale-id'] as string;
-  const whaleTraits = allTraits[Number(whaleID)];
-  return {
-    props: {
-      whaleTraits,
-    },
-  };
-};
-
-// learned how to do this on https://explorers.netlify.com/learn/nextjs/nextjs-dynamic-routes
-export const getStaticPaths: GetStaticPaths = () => {
-  const paths = Array(3350)
-    .fill(0)
-    .map((_, index) => `${routes.internal.whale}${index}`);
-  console.log({ paths });
-  return Promise.resolve({ paths, fallback: false });
-};
 
 export type AssetInfoResponse = {
   id: 158831;
