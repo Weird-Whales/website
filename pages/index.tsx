@@ -112,7 +112,7 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
                   </a>
                 </td>
                 <td>
-                  {allTraits.filter((traits) => traits.Base === 'alien').length}
+                  {allTraits.filter((traits) => traits.Base === 'Alien').length}
                 </td>
               </tr>
               <tr>
@@ -126,7 +126,7 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
                   </a>
                 </td>
                 <td>
-                  {allTraits.filter((traits) => traits.Base === 'ape').length}
+                  {allTraits.filter((traits) => traits.Base === 'Ape').length}
                 </td>
               </tr>
 
@@ -142,7 +142,7 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
                 </td>
                 <td>
                   {
-                    allTraits.filter((traits) => traits.Base === 'zombie')
+                    allTraits.filter((traits) => traits.Base === 'Zombie')
                       .length
                   }
                 </td>
@@ -159,7 +159,7 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
                 </td>
                 <td>
                   {
-                    allTraits.filter((traits) => traits.Base === 'normal')
+                    allTraits.filter((traits) => traits.Base === 'Normal')
                       .length
                   }
                 </td>
