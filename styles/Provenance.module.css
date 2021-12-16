@@ -1,0 +1,28 @@
+.container {
+  margin: 50px;
+}
+
+.contractDetails {
+  font-size: 30px;
+  color: #fad121;
+}
+
+.contract {
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+.finalProofHash {
+  font-size: 20px;
+  margin-top: -25px;
+}
+
+.concatenatedHashString {
+  font-size: 30px;
+  color: #fad121;
+  margin-bottom: 10px;
+}
+
+.concatenatedHashContainer {
+  margin-top: 10px;
+}
