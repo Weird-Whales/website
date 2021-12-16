@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaDiscord, FaTwitter } from 'react-icons/fa';
+import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa';
 import styled from 'styled-components';
 import { routes } from '../utils/routes';
 
@@ -30,6 +30,15 @@ export const Footer = () => {
       >
         <span style={{ margin: '10px' }}>
           <FaDiscord size={'1.6em'} />
+        </span>
+      </a>
+      <a
+        href={routes.external.WWGithub}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span style={{ margin: '10px' }}>
+          <FaGithub size={'1.6em'} />
         </span>
       </a>
     </_Footer>
