@@ -2,6 +2,7 @@ const githubImages = 'https://github.com/Weird-Whales/images';
 export const routes = {
   internal: {
     whale: '/whale/',
+    provenance: '/provenance/',
   },
   external: {
     rawImageRoot600px: `${githubImages}/raw/main/optimized-images/600x600/`,

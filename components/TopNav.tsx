@@ -25,6 +25,11 @@ export const TopNav = () => {
           <span style={{ margin: '10px' }}>Random Whale</span>
         </a>
       </Link>
+      <Link href={`${routes.internal.provenance}`}>
+        <a style={{ textDecoration: 'underline' }}>
+          <span style={{ margin: '30px' }}>Provenance</span>
+        </a>
+      </Link>
     </Header>
   );
 };
