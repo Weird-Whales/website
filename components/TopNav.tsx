@@ -16,13 +16,18 @@ export const TopNav = () => {
   return (
     <Header>
       <Link href={'/'}>
-        <a style={{ textDecoration: 'underline' }}>
+        <a>
           <span style={{ margin: '30px' }}>Home</span>
         </a>
       </Link>
       <Link href={`${routes.internal.whale}${computeRandomWhaleID()}`}>
-        <a style={{ textDecoration: 'underline' }}>
+        <a>
           <span style={{ margin: '10px' }}>Random Whale</span>
+        </a>
+      </Link>
+      <Link href={routes.internal.provenance}>
+        <a>
+          <span style={{ margin: '30px' }}>Provenance</span>
         </a>
       </Link>
     </Header>
