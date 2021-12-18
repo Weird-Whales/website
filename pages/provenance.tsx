@@ -6,7 +6,7 @@ import { routes } from '../utils/routes';
 const Provenance = () => {
   return (
     <div className={styles.container}>
-      <h1>PROVENANCE RECORD</h1>
+      <h1 style={{ textTransform: 'uppercase' }}>Provenance Record</h1>
       <div>
         <h1 className={styles.contractDetails}>Contract Details</h1>
         <h6 className={styles.contract}>
@@ -30,8 +30,8 @@ const Provenance = () => {
           <div className={styles.concatenatedHashContainer}>
             <textarea
               style={{ backgroundColor: 'transparent', fontSize: '10px' }}
-              rows="10"
-              cols="175"
+              rows={10}
+              cols={175}
               value={Constants.PROVENANCE_HASH}
               disabled
             />
@@ -44,9 +44,9 @@ const Provenance = () => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>OPENSEA</th>
-              <th>IMAGE</th>
-              <th>SHA-256 HASH</th>
+              <th style={{ textTransform: 'uppercase' }}>Opensea</th>
+              <th style={{ textTransform: 'uppercase' }}>Image</th>
+              <th style={{ textTransform: 'uppercase' }}>SHA-256 Hash</th>
               <th>IPFS</th>
             </tr>
           </thead>
@@ -62,8 +62,9 @@ const Provenance = () => {
                       target="_blank"
                       className="siteLink"
                       rel="noreferrer"
+                      style={{ textTransform: 'uppercase' }}
                     >
-                      VIEW
+                      View
                     </a>
                   </td>
                   <td>
@@ -72,8 +73,9 @@ const Provenance = () => {
                       target="_blank"
                       className="siteLink"
                       rel="noreferrer"
+                      style={{ textTransform: 'uppercase' }}
                     >
-                      VIEW
+                      View
                     </a>
                   </td>
                   <td>{x.hash}</td>
@@ -83,8 +85,9 @@ const Provenance = () => {
                       target="_blank"
                       className="siteLink"
                       rel="noreferrer"
+                      style={{ textTransform: 'uppercase' }}
                     >
-                      VIEW
+                      View
                     </a>
                   </td>
                 </tr>
