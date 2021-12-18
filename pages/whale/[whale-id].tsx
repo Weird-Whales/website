@@ -4,8 +4,8 @@ import { useRouter } from 'next/dist/client/router';
 import React, { useEffect } from 'react';
 import { SEO } from '../../components/SEO';
 import { Container, FlexRow, Section } from '../../components/shared';
+import { TransactionHistory } from '../../components/TransactionHistory';
 import { WhaleImage } from '../../components/WhaleImage';
-import styles from '../../styles/Whale.module.css';
 import allTraits from '../../utils/all-traits.json';
 import { routes } from '../../utils/routes';
 import { traitFrequency } from '../../utils/trait-frequency';
@@ -30,67 +30,6 @@ const WhaleProperty: React.FunctionComponent<{ title: string; value: string }> =
     );
   };
 
-const TransactionHistory = () => {
-  return (
-    <>
-      <h2>Transaction History</h2>
-
-      <table className={styles.transactionTable}>
-        <tr>
-          <th>Type</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Amount</th>
-          <th>Txn</th>
-        </tr>
-        <tr className={styles.bid}>
-          <td>Bid</td>
-          <td>
-            <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-              0x8a502e
-            </a>
-          </td>
-          <td></td>
-          <td>0.13Ξ ($443)</td>
-          <td>Aug 31, 2021</td>
-        </tr>
-        <tr className={styles.sold}>
-          <td>Sold</td>
-          <td>
-            <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-              0x8a502e
-            </a>
-          </td>
-          <td>
-            <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-              0x8a502e
-            </a>
-          </td>
-          <td>0.13Ξ ($443)</td>
-          <td>Aug 31, 2021</td>
-        </tr>
-        <tr className={styles.offered}>
-          <td>Offered</td>
-          <td></td>
-          <td></td>
-          <td>0.13Ξ ($443)</td>
-          <td>Aug 31, 2021</td>
-        </tr>
-        <tr className={styles.mint}>
-          <td>Minted</td>
-          <td></td>
-          <td>
-            <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-              0x8a502e
-            </a>
-          </td>
-          <td></td>
-          <td>Aug 31, 2021</td>
-        </tr>
-      </table>
-    </>
-  );
-};
 const Details = () => {
   const router = useRouter();
   const whaleID = router.query['whale-id'];
@@ -173,7 +112,7 @@ const Details = () => {
             >
               🌊 View on OpenSea{' '}
             </a>
-            <TransactionHistory></TransactionHistory>
+            <TransactionHistory whaleID={whaleID} />
           </Container>
         </Section>
       </main>
