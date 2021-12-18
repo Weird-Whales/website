@@ -1,6 +1,58 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import styles from '../styles/TransactionHistory.module.css';
+import { weiToEther } from 'essential-eth';
+
+
+type txnType = 'Sold' | 'Offer' | 'Minted' | 'Bid';
+
+interface Transaction {
+  type: txnType;
+  from: string;
+  to: string | null;
+  amount: string;
+  txnDate: Date;
+  txnID: string | null;
+}
+
+const getPrice = (priceWei:string): string => {
+  return `${weiToEther(priceWei)}Ξ`;
+}
+
+const getSold = (data:any): Transaction[] => {
+
+  const txns = new Array<Transaction>();
+
+  data.forEach(v => {
+    txns.push({
+      type: 'Sold',
+      from: v.seller.address,
+      to: v.winner_account.address,
+      amount: getPrice(v.total_price),
+      txnDate: new Date(v.transaction.timestamp),
+      txnID: v.transaction.transaction_hash
+    } as Transaction)
+  });
+  return txns
+}
+
+const getOffers = (data:any): Transaction[] => {
+
+  const txns = new Array<Transaction>();
+
+  data.forEach(v => {
+    txns.push({
+      type: 'Offer',
+      from: v.from_account.address,
+      to: null,
+      amount: getPrice(v.bid_amount),
+      txnDate: new Date(v.created_date),
+      txnID: null
+    } as Transaction)
+  });
+  return txns
+}
+
 
 export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
   ({ whaleID }) => {
@@ -25,8 +77,13 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
             const responseCreated = responses[2];
             const responseBidEntered = responses[3];
 
-            console.log('responseSuccessful', responseSuccessful);
-            console.log('responseOfferEntered', responseOfferEntered);
+            const txns = new Array<Transaction>();
+
+            const sold = getSold(responseSuccessful['data']['asset_events'])
+            const offers = getOffers(responseOfferEntered['data']['asset_events'])
+
+            console.log('responseSuccessful', sold);
+            console.log('responseOfferEntered', offers);
             console.log('responseCreated', responseCreated);
             console.log('responseBidEntered', responseBidEntered);
           }),
