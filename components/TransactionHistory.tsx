@@ -1,7 +1,17 @@
+import axios from 'axios';
+import React, { useEffect } from 'react';
+import { AssetInfoResponse } from '../pages/whale/[whale-id]';
 import styles from '../styles/TransactionHistory.module.css';
 
-export const TransactionHistory: React.FunctionComponent<{ whaleID: number }> =
+export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
   ({ whaleID }) => {
+    useEffect(() => {
+      axios(`/api/transactions/${whaleID}`).then((res: any) => {
+        const assetData = res.data as AssetInfoResponse;
+        console.log(assetData);
+      });
+    }, []);
+
     return (
       <>
         <h2>Transaction History {whaleID}</h2>
