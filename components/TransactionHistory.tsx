@@ -1,15 +1,36 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
-import { AssetInfoResponse } from '../pages/whale/[whale-id]';
 import styles from '../styles/TransactionHistory.module.css';
 
 export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
   ({ whaleID }) => {
     useEffect(() => {
-      axios(`/api/transactions/${whaleID}`).then((res: any) => {
-        const assetData = res.data as AssetInfoResponse;
-        console.log(assetData);
-      });
+      const url = `/api/transactions/${whaleID}`;
+      const requestSuccessful = axios.get(`${url}/successful`);
+      const requestOfferEntered = axios.get(`${url}/offer_entered`);
+      const requestCreated = axios.get(`${url}/created`);
+      const requestBidEntered = axios.get(`${url}/bid_entered`);
+
+      axios
+        .all([
+          requestSuccessful,
+          requestOfferEntered,
+          requestCreated,
+          requestBidEntered,
+        ])
+        .then(
+          axios.spread((...responses) => {
+            const responseSuccessful = responses[0];
+            const responseOfferEntered = responses[1];
+            const responseCreated = responses[2];
+            const responseBidEntered = responses[3];
+
+            console.log('responseSuccessful', responseSuccessful);
+            console.log('responseOfferEntered', responseOfferEntered);
+            console.log('responseCreated', responseCreated);
+            console.log('responseBidEntered', responseBidEntered);
+          }),
+        );
     }, []);
 
     return (

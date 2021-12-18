@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { AssetInfoResponse } from './../../whale/[whale-id]';
+import { AssetInfoResponse } from '../../../whale/[whale-id]';
 
 type Data = {
   name: string;
@@ -11,6 +11,7 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   const whaleID = req.query['whale-id'];
+  const eventType = req.query['event-type'];
 
   const config: AxiosRequestConfig = {
     method: 'GET',
@@ -21,7 +22,7 @@ export default async function handler(
     params: {
       asset_contract_address: '0x96Ed81c7F4406Eff359E27BfF6325DC3c9e042BD',
       token_id: whaleID,
-      event_type: 'successful',
+      event_type: eventType,
       only_opensea: 'false',
       offset: '0',
       limit: '20',
