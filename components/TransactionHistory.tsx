@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { format } from 'date-fns';
 import { weiToEther } from 'essential-eth';
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 import styles from '../styles/TransactionHistory.module.css';
 type txnType = 'Sold' | 'Offer' | 'Transfer' | 'Bid' | 'Bid Withdrawn';
@@ -185,10 +186,22 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
                     return [
                       <tr key={i} className={item.type}>
                         <td className={styles.tableCell}>{item.type}</td>
-                        <td className={styles.tableCell}>{item.from.substring(0, 8)}</td>
-                        <td className={styles.tableCell}>{item.to ? item.to.substring(0, 8) : ''}</td>
+                        <td className={styles.tableCell}>
+                          <Link
+                            href={`https://etherscan.io/address/${item.from}`}
+                          >
+                            <a className={styles.transactionLink}>
+                              {item.from.substring(0, 8)}
+                            </a>
+                          </Link>
+                        </td>
+                        <td className={styles.tableCell}>
+                          {item.to ? item.to.substring(0, 8) : ''}
+                        </td>
                         <td className={styles.tableCell}>{item.amount}</td>
-                        <td className={styles.tableCell}>{format(item.txnDate, 'MMM dd, yyyy')}</td>
+                        <td className={styles.tableCell}>
+                          {format(item.txnDate, 'MMM dd, yyyy')}
+                        </td>
                       </tr>,
                     ];
                   })}

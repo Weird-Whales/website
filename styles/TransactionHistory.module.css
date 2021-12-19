@@ -9,3 +9,9 @@
   vertical-align: top;
   border-top: 1px solid #ddd;
 }
+
+.transactionLink {
+  text-decoration: none;
+  color: #a070dd;
+  font-weight: bolder;
+}
