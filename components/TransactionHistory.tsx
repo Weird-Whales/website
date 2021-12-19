@@ -166,7 +166,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
       <>
         {!isBusy && (
           <>
-            <h2>Transaction History {whaleID}</h2>
+            <h2>Transaction History</h2>
 
             <table className={styles.transactionTable}>
               <thead>
@@ -188,7 +188,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
                         <td className={styles.tableCell}>{item.from.substring(0, 8)}</td>
                         <td className={styles.tableCell}>{item.to ? item.to.substring(0, 8) : ''}</td>
                         <td className={styles.tableCell}>{item.amount}</td>
-                        <td className={styles.tableCell}>{format(item.txnDate, 'dd-MMM-yyyy')}</td>
+                        <td className={styles.tableCell}>{format(item.txnDate, 'MMM dd, yyyy')}</td>
                       </tr>,
                     ];
                   })}
