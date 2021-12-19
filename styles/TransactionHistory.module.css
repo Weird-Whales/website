@@ -8,6 +8,7 @@
   line-height: 1.47;
   vertical-align: top;
   border-top: 1px solid #ddd;
+  white-space: nowrap;
 }
 
 .transactionLink {

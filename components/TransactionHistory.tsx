@@ -16,7 +16,7 @@ interface Transaction {
 }
 
 const getPrice = (priceWei: string): string => {
-  return `${weiToEther(priceWei)}Ξ`;
+  return `${weiToEther(priceWei).toNumber().toFixed(3)}Ξ`;
 };
 
 const burnAddress = '0x0000000000000000000000000000000000000000';
