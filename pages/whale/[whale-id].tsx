@@ -32,7 +32,7 @@ const WhaleProperty: React.FunctionComponent<{ title: string; value: string }> =
 
 const Details = () => {
   const router = useRouter();
-  const whaleID = router.query['whale-id'];
+  const whaleID = router.query['whale-id'] as string;
 
   const [lastSalePrice, setLastSalePrice] = React.useState('');
   const [currentOwner, setCurrentOwner] = React.useState('');

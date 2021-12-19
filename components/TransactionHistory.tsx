@@ -1,10 +1,9 @@
 import axios from 'axios';
+import { weiToEther } from 'essential-eth';
 import React, { useEffect } from 'react';
 import styles from '../styles/TransactionHistory.module.css';
-import { weiToEther } from 'essential-eth';
 
-
-type txnType = 'Sold' | 'Offer' | 'Transfer' | 'Bid';
+type txnType = 'Sold' | 'Offer' | 'Transfer' | 'Bid' | 'Bid Withdrawn';
 
 interface Transaction {
   type: txnType;
@@ -15,77 +14,89 @@ interface Transaction {
   txnID: string | null;
 }
 
-const getPrice = (priceWei:string): string => {
+const getPrice = (priceWei: string): string => {
   return `${weiToEther(priceWei)}Ξ`;
-}
+};
 
-const getSold = (data:any): Transaction[] => {
-
+const getSold = (data: any): Transaction[] => {
   const txns = new Array<Transaction>();
 
-  data.forEach(v => {
+  data.forEach((v) => {
     txns.push({
       type: 'Sold',
       from: v.seller.address,
       to: v.winner_account.address,
       amount: getPrice(v.total_price),
       txnDate: new Date(v.transaction.timestamp),
-      txnID: v.transaction.transaction_hash
-    } as Transaction)
+      txnID: v.transaction.transaction_hash,
+    } as Transaction);
   });
-  return txns
-}
+  return txns;
+};
 
-const getOffers = (data:any): Transaction[] => {
-
+const getOffers = (data: any): Transaction[] => {
   const txns = new Array<Transaction>();
 
-  data.forEach(v => {
+  data.forEach((v) => {
     txns.push({
       type: 'Offer',
       from: v.from_account.address,
       to: null,
       amount: getPrice(v.bid_amount),
       txnDate: new Date(v.created_date),
-      txnID: null
-    } as Transaction)
+      txnID: null,
+    } as Transaction);
   });
-  return txns
-}
+  return txns;
+};
 
-const getTransfers = (data:any): Transaction[] => {
-
+const getTransfers = (data: any): Transaction[] => {
   const txns = new Array<Transaction>();
 
-  data.forEach(v => {
+  data.forEach((v) => {
     txns.push({
       type: 'Transfer',
       from: v.from_account.address,
       to: v.to_account.address,
       amount: null,
       txnDate: new Date(v.transaction.timestamp),
-      txnID: v.transaction.block_hash
-    } as Transaction)
+      txnID: v.transaction.block_hash,
+    } as Transaction);
   });
-  return txns
-}
+  return txns;
+};
 
-const getBids = (data:any): Transaction[] => {
-
+const getBidsEntered = (data: any): Transaction[] => {
   const txns = new Array<Transaction>();
 
-  data.forEach(v => {
+  data.forEach((v) => {
     txns.push({
       type: 'Bid',
       from: v.from_account.address,
-      to: v.to_account.address,
-      amount: null,
-      txnDate: new Date(v.transaction.timestamp),
-      txnID: v.transaction.block_hash
-    } as Transaction)
+      to: null,
+      amount: getPrice(v.bid_amount),
+      txnDate: new Date(v.created_date),
+      txnID: null,
+    } as Transaction);
   });
-  return txns
-}
+  return txns;
+};
+
+const getBidsWithdrawn = (data: any): Transaction[] => {
+  const txns = new Array<Transaction>();
+
+  data.forEach((v) => {
+    txns.push({
+      type: 'Bid Withdrawn',
+      from: v.from_account.address,
+      to: null,
+      amount: getPrice(v.total_price),
+      txnDate: new Date(v.created_date),
+      txnID: v.transaction.block_hash,
+    } as Transaction);
+  });
+  return txns;
+};
 
 export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
   ({ whaleID }) => {
@@ -95,6 +106,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
       const requestOfferEntered = axios.get(`${url}/offer_entered`);
       const requestTransfer = axios.get(`${url}/transfer`);
       const requestBidEntered = axios.get(`${url}/bid_entered`);
+      const requestBidsWithdrawn = axios.get(`${url}/bid_withdrawn`);
 
       axios
         .all([
@@ -102,6 +114,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
           requestOfferEntered,
           requestTransfer,
           requestBidEntered,
+          requestBidsWithdrawn,
         ])
         .then(
           axios.spread((...responses) => {
@@ -109,17 +122,29 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
             const responseOfferEntered = responses[1];
             const responseTransferred = responses[2];
             const responseBidEntered = responses[3];
+            const requestBidsWithdrawn = responses[4];
 
             const txns = new Array<Transaction>();
 
-            const sold = getSold(responseSuccessful['data']['asset_events'])
-            const offers = getOffers(responseOfferEntered['data']['asset_events'])
-            const transfers = getTransfers(responseTransferred['data']['asset_events'])
+            const sold = getSold(responseSuccessful['data']['asset_events']);
+            const offers = getOffers(
+              responseOfferEntered['data']['asset_events'],
+            );
+            const transfers = getTransfers(
+              responseTransferred['data']['asset_events'],
+            );
+            const bids = getBidsEntered(
+              responseBidEntered['data']['asset_events'],
+            );
+            const bidsWithdrawn = getBidsWithdrawn(
+              requestBidsWithdrawn['data']['asset_events'],
+            );
 
             console.log('responseSuccessful', sold);
             console.log('responseOfferEntered', offers);
             console.log('responseTransferred', transfers);
-            console.log('responseBidEntered', responseBidEntered);
+            console.log('responseBidEntered', bids);
+            console.log('requestBidsWithdrawn', bidsWithdrawn);
           }),
         );
     }, []);
@@ -129,57 +154,59 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
         <h2>Transaction History {whaleID}</h2>
 
         <table className={styles.transactionTable}>
-          <tr>
-            <th>Type</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Amount</th>
-            <th>Txn</th>
-          </tr>
-          <tr className={styles.bid}>
-            <td>Bid</td>
-            <td>
-              <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                0x8a502e
-              </a>
-            </td>
-            <td></td>
-            <td>0.13Ξ ($443)</td>
-            <td>Aug 31, 2021</td>
-          </tr>
-          <tr className={styles.sold}>
-            <td>Sold</td>
-            <td>
-              <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                0x8a502e
-              </a>
-            </td>
-            <td>
-              <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                0x8a502e
-              </a>
-            </td>
-            <td>0.13Ξ ($443)</td>
-            <td>Aug 31, 2021</td>
-          </tr>
-          <tr className={styles.offered}>
-            <td>Offered</td>
-            <td></td>
-            <td></td>
-            <td>0.13Ξ ($443)</td>
-            <td>Aug 31, 2021</td>
-          </tr>
-          <tr className={styles.mint}>
-            <td>Minted</td>
-            <td></td>
-            <td>
-              <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                0x8a502e
-              </a>
-            </td>
-            <td></td>
-            <td>Aug 31, 2021</td>
-          </tr>
+          <tbody>
+            <tr>
+              <th>Type</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Amount</th>
+              <th>Txn</th>
+            </tr>
+            <tr className={styles.bid}>
+              <td>Bid</td>
+              <td>
+                <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
+                  0x8a502e
+                </a>
+              </td>
+              <td></td>
+              <td>0.13Ξ ($443)</td>
+              <td>Aug 31, 2021</td>
+            </tr>
+            <tr className={styles.sold}>
+              <td>Sold</td>
+              <td>
+                <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
+                  0x8a502e
+                </a>
+              </td>
+              <td>
+                <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
+                  0x8a502e
+                </a>
+              </td>
+              <td>0.13Ξ ($443)</td>
+              <td>Aug 31, 2021</td>
+            </tr>
+            <tr className={styles.offered}>
+              <td>Offered</td>
+              <td></td>
+              <td></td>
+              <td>0.13Ξ ($443)</td>
+              <td>Aug 31, 2021</td>
+            </tr>
+            <tr className={styles.mint}>
+              <td>Minted</td>
+              <td></td>
+              <td>
+                <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
+                  0x8a502e
+                </a>
+              </td>
+              <td></td>
+              <td>Aug 31, 2021</td>
+            </tr>
+          </tbody>
         </table>
       </>
     );

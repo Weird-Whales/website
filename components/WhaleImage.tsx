@@ -24,7 +24,7 @@ export const WhaleImage: React.FunctionComponent<{
   );
   if (isAnchor) {
     return (
-      <Link href={`${routes.internal.whale}${whaleID}`}>
+      <Link href={`${routes.internal.whale}${whaleID}`} as="/whale">
         <a>{ImageWithContainer}</a>
       </Link>
     );
