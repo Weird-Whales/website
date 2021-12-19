@@ -19,6 +19,8 @@ const getPrice = (priceWei: string): string => {
   return `${weiToEther(priceWei)}Ξ`;
 };
 
+const burnAddress = '0x0000000000000000000000000000000000000000';
+
 const getSold = (data: any): Transaction[] => {
   const txns = new Array<Transaction>();
 
@@ -185,15 +187,21 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
                   .map((item, i) => {
                     return [
                       <tr key={i} className={item.type}>
-                        <td className={styles.tableCell}>{item.type}</td>
                         <td className={styles.tableCell}>
-                          <Link
-                            href={`https://etherscan.io/address/${item.from}`}
-                          >
-                            <a className={styles.transactionLink}>
-                              {item.from.substring(0, 8)}
-                            </a>
-                          </Link>
+                          {item.from === burnAddress ? 'Minted' : item.type}
+                        </td>
+                        <td className={styles.tableCell}>
+                          {item.from !== burnAddress ? (
+                            <Link
+                              href={`https://etherscan.io/address/${item.from}`}
+                            >
+                              <a className={styles.transactionLink}>
+                                {item.from.substring(0, 8)}
+                              </a>
+                            </Link>
+                          ) : (
+                            ''
+                          )}
                         </td>
                         <td className={styles.tableCell}>
                           {item.to ? (
@@ -210,7 +218,17 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
                         </td>
                         <td className={styles.tableCell}>{item.amount}</td>
                         <td className={styles.tableCell}>
-                          {format(item.txnDate, 'MMM dd, yyyy')}
+                          {item.txnID ? (
+                            <Link
+                              href={`https://etherscan.io/tx/${item.txnID}`}
+                            >
+                              <a className={styles.transactionLink}>
+                                {format(item.txnDate, 'MMM dd, yyyy')}
+                              </a>
+                            </Link>
+                          ) : (
+                            <span>{format(item.txnDate, 'MMM dd, yyyy')}</span>
+                          )}
                         </td>
                       </tr>,
                     ];
