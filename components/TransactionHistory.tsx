@@ -124,27 +124,29 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
             const responseBidEntered = responses[3];
             const requestBidsWithdrawn = responses[4];
 
-            const txns = new Array<Transaction>();
+            let txns = new Array<Transaction>();
 
             const sold = getSold(responseSuccessful['data']['asset_events']);
+
             const offers = getOffers(
               responseOfferEntered['data']['asset_events'],
             );
+
             const transfers = getTransfers(
               responseTransferred['data']['asset_events'],
             );
+
             const bids = getBidsEntered(
               responseBidEntered['data']['asset_events'],
             );
+
             const bidsWithdrawn = getBidsWithdrawn(
               requestBidsWithdrawn['data']['asset_events'],
             );
 
-            console.log('responseSuccessful', sold);
-            console.log('responseOfferEntered', offers);
-            console.log('responseTransferred', transfers);
-            console.log('responseBidEntered', bids);
-            console.log('requestBidsWithdrawn', bidsWithdrawn);
+            txns = [...sold, ...offers, ...transfers, ...bids, ...bidsWithdrawn];
+            
+            console.log(txns)
           }),
         );
     }, []);
