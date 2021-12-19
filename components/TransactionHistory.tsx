@@ -4,13 +4,13 @@ import styles from '../styles/TransactionHistory.module.css';
 import { weiToEther } from 'essential-eth';
 
 
-type txnType = 'Sold' | 'Offer' | 'Minted' | 'Bid';
+type txnType = 'Sold' | 'Offer' | 'Transfer' | 'Bid';
 
 interface Transaction {
   type: txnType;
   from: string;
   to: string | null;
-  amount: string;
+  amount: string | null;
   txnDate: Date;
   txnID: string | null;
 }
@@ -53,6 +53,39 @@ const getOffers = (data:any): Transaction[] => {
   return txns
 }
 
+const getTransfers = (data:any): Transaction[] => {
+
+  const txns = new Array<Transaction>();
+
+  data.forEach(v => {
+    txns.push({
+      type: 'Transfer',
+      from: v.from_account.address,
+      to: v.to_account.address,
+      amount: null,
+      txnDate: new Date(v.transaction.timestamp),
+      txnID: v.transaction.block_hash
+    } as Transaction)
+  });
+  return txns
+}
+
+const getBids = (data:any): Transaction[] => {
+
+  const txns = new Array<Transaction>();
+
+  data.forEach(v => {
+    txns.push({
+      type: 'Bid',
+      from: v.from_account.address,
+      to: v.to_account.address,
+      amount: null,
+      txnDate: new Date(v.transaction.timestamp),
+      txnID: v.transaction.block_hash
+    } as Transaction)
+  });
+  return txns
+}
 
 export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
   ({ whaleID }) => {
@@ -60,31 +93,32 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
       const url = `/api/transactions/${whaleID}`;
       const requestSuccessful = axios.get(`${url}/successful`);
       const requestOfferEntered = axios.get(`${url}/offer_entered`);
-      const requestCreated = axios.get(`${url}/created`);
+      const requestTransfer = axios.get(`${url}/transfer`);
       const requestBidEntered = axios.get(`${url}/bid_entered`);
 
       axios
         .all([
           requestSuccessful,
           requestOfferEntered,
-          requestCreated,
+          requestTransfer,
           requestBidEntered,
         ])
         .then(
           axios.spread((...responses) => {
             const responseSuccessful = responses[0];
             const responseOfferEntered = responses[1];
-            const responseCreated = responses[2];
+            const responseTransferred = responses[2];
             const responseBidEntered = responses[3];
 
             const txns = new Array<Transaction>();
 
             const sold = getSold(responseSuccessful['data']['asset_events'])
             const offers = getOffers(responseOfferEntered['data']['asset_events'])
+            const transfers = getTransfers(responseTransferred['data']['asset_events'])
 
             console.log('responseSuccessful', sold);
             console.log('responseOfferEntered', offers);
-            console.log('responseCreated', responseCreated);
+            console.log('responseTransferred', transfers);
             console.log('responseBidEntered', responseBidEntered);
           }),
         );
