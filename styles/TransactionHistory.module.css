@@ -1,5 +1,11 @@
 .transactionTable {
   border-collapse: collapse;
   padding: 10px;
-  border: none;
+  border: 1px solid #ddd;
+}
+
+.tableCell {
+  line-height: 1.47;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
 }

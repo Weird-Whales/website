@@ -171,24 +171,24 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
             <table className={styles.transactionTable}>
               <thead>
                 <tr>
-                  <th>Type</th>
-                  <th>From</th>
-                  <th>To</th>
-                  <th>Amount</th>
-                  <th>Txn</th>
+                  <th className={styles.tableCell}>Type</th>
+                  <th className={styles.tableCell}>From</th>
+                  <th className={styles.tableCell}>To</th>
+                  <th className={styles.tableCell}>Amount</th>
+                  <th className={styles.tableCell}>Txn</th>
                 </tr>
               </thead>
               <tbody>
                 {txns
-                  .sort((a, b) => new Date(b.txnDate) - new Date(a.txnDate))
+                  .sort((a, b) => b.txnDate - a.txnDate)
                   .map((item, i) => {
                     return [
                       <tr key={i} className={item.type}>
-                        <td>{item.type}</td>
-                        <td>{item.from.substring(0, 8)}</td>
-                        <td>{item.to ? item.to.substring(0, 8) : ''}</td>
-                        <td>{item.amount}</td>
-                        <td>{format(item.txnDate, 'dd-MMM-yyyy')}</td>
+                        <td className={styles.tableCell}>{item.type}</td>
+                        <td className={styles.tableCell}>{item.from.substring(0, 8)}</td>
+                        <td className={styles.tableCell}>{item.to ? item.to.substring(0, 8) : ''}</td>
+                        <td className={styles.tableCell}>{item.amount}</td>
+                        <td className={styles.tableCell}>{format(item.txnDate, 'dd-MMM-yyyy')}</td>
                       </tr>,
                     ];
                   })}
