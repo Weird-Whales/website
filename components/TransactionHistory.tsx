@@ -1,8 +1,8 @@
 import axios from 'axios';
+import { format } from 'date-fns';
 import { weiToEther } from 'essential-eth';
 import React, { useEffect } from 'react';
 import styles from '../styles/TransactionHistory.module.css';
-
 type txnType = 'Sold' | 'Offer' | 'Transfer' | 'Bid' | 'Bid Withdrawn';
 
 interface Transaction {
@@ -100,13 +100,11 @@ const getBidsWithdrawn = (data: any): Transaction[] => {
 
 export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
   ({ whaleID }) => {
-
     const [txns, setTxns] = React.useState(new Array<Transaction>());
-    
+
     const [isBusy, setIsBusy] = React.useState(true);
 
     useEffect(() => {
-
       const url = `/api/transactions/${whaleID}`;
       const requestSuccessful = axios.get(`${url}/successful`);
       const requestOfferEntered = axios.get(`${url}/offer_entered`);
@@ -120,7 +118,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
           requestOfferEntered,
           requestTransfer,
           requestBidEntered,
-          requestBidsWithdrawn,
+          //requestBidsWithdrawn,
         ])
         .then(
           axios.spread((...responses) => {
@@ -128,7 +126,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
             const responseOfferEntered = responses[1];
             const responseTransferred = responses[2];
             const responseBidEntered = responses[3];
-            const requestBidsWithdrawn = responses[4];
+            //const requestBidsWithdrawn = responses[4];
 
             let txns = new Array<Transaction>();
 
@@ -146,19 +144,20 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
               responseBidEntered['data']['asset_events'],
             );
 
+            /*
             const bidsWithdrawn = getBidsWithdrawn(
               requestBidsWithdrawn['data']['asset_events'],
-            );
+            );*/
 
             txns = [
               ...sold,
               ...offers,
               ...transfers,
               ...bids,
-              ...bidsWithdrawn,
+              //...bidsWithdrawn,
             ];
             setTxns(txns);
-            setIsBusy(false); 
+            setIsBusy(false);
           }),
         );
     }, []);
@@ -170,7 +169,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
             <h2>Transaction History {whaleID}</h2>
 
             <table className={styles.transactionTable}>
-              <tbody>
+              <thead>
                 <tr>
                   <th>Type</th>
                   <th>From</th>
@@ -178,50 +177,21 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
                   <th>Amount</th>
                   <th>Txn</th>
                 </tr>
-                <tr className={styles.bid}>
-                  <td>Bid</td>
-                  <td>
-                    <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                      0x8a502e
-                    </a>
-                  </td>
-                  <td></td>
-                  <td>0.13Ξ ($443)</td>
-                  <td>Aug 31, 2021</td>
-                </tr>
-                <tr className={styles.sold}>
-                  <td>Sold</td>
-                  <td>
-                    <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                      0x8a502e
-                    </a>
-                  </td>
-                  <td>
-                    <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                      0x8a502e
-                    </a>
-                  </td>
-                  <td>0.13Ξ ($443)</td>
-                  <td>Aug 31, 2021</td>
-                </tr>
-                <tr className={styles.offered}>
-                  <td>Offered</td>
-                  <td></td>
-                  <td></td>
-                  <td>0.13Ξ ($443)</td>
-                  <td>Aug 31, 2021</td>
-                </tr>
-                <tr className={styles.mint}>
-                  <td>Minted</td>
-                  <td></td>
-                  <td>
-                    <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                      0x8a502e
-                    </a>
-                  </td>
-                  <td></td>
-                  <td>Aug 31, 2021</td>
-                </tr>
+              </thead>
+              <tbody>
+                {txns
+                  .sort((a, b) => new Date(b.txnDate) - new Date(a.txnDate))
+                  .map((item, i) => {
+                    return [
+                      <tr key={i} className={item.type}>
+                        <td>{item.type}</td>
+                        <td>{item.from.substring(0, 8)}</td>
+                        <td>{item.to ? item.to.substring(0, 8) : ''}</td>
+                        <td>{item.amount}</td>
+                        <td>{format(item.txnDate, 'dd-MMM-yyyy')}</td>
+                      </tr>,
+                    ];
+                  })}
               </tbody>
             </table>
           </>

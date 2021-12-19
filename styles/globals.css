@@ -24,3 +24,18 @@ table {
 * {
   box-sizing: border-box;
 }
+.Bid {
+  background-color: #b8a7ce;
+}
+
+.Sold {
+  background-color: #adc9d6;
+}
+
+.Offer {
+  background-color: #d6adad;
+}
+
+.Transfer {
+  background-color: #add6b8;
+}
