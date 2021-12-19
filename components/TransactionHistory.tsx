@@ -196,7 +196,17 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
                           </Link>
                         </td>
                         <td className={styles.tableCell}>
-                          {item.to ? item.to.substring(0, 8) : ''}
+                          {item.to ? (
+                            <Link
+                              href={`https://etherscan.io/address/${item.to}`}
+                            >
+                              <a className={styles.transactionLink}>
+                                {item.to.substring(0, 8)}
+                              </a>
+                            </Link>
+                          ) : (
+                            ''
+                          )}
                         </td>
                         <td className={styles.tableCell}>{item.amount}</td>
                         <td className={styles.tableCell}>
