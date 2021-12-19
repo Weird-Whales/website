@@ -100,7 +100,13 @@ const getBidsWithdrawn = (data: any): Transaction[] => {
 
 export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
   ({ whaleID }) => {
+
+    const [txns, setTxns] = React.useState(new Array<Transaction>());
+    
+    const [isBusy, setIsBusy] = React.useState(true);
+
     useEffect(() => {
+
       const url = `/api/transactions/${whaleID}`;
       const requestSuccessful = axios.get(`${url}/successful`);
       const requestOfferEntered = axios.get(`${url}/offer_entered`);
@@ -144,72 +150,82 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
               requestBidsWithdrawn['data']['asset_events'],
             );
 
-            txns = [...sold, ...offers, ...transfers, ...bids, ...bidsWithdrawn];
-            
-            console.log(txns)
+            txns = [
+              ...sold,
+              ...offers,
+              ...transfers,
+              ...bids,
+              ...bidsWithdrawn,
+            ];
+            setTxns(txns);
+            setIsBusy(false); 
           }),
         );
     }, []);
 
     return (
       <>
-        <h2>Transaction History {whaleID}</h2>
+        {!isBusy && (
+          <>
+            <h2>Transaction History {whaleID}</h2>
 
-        <table className={styles.transactionTable}>
-          <tbody>
-            <tr>
-              <th>Type</th>
-              <th>From</th>
-              <th>To</th>
-              <th>Amount</th>
-              <th>Txn</th>
-            </tr>
-            <tr className={styles.bid}>
-              <td>Bid</td>
-              <td>
-                <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                  0x8a502e
-                </a>
-              </td>
-              <td></td>
-              <td>0.13Ξ ($443)</td>
-              <td>Aug 31, 2021</td>
-            </tr>
-            <tr className={styles.sold}>
-              <td>Sold</td>
-              <td>
-                <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                  0x8a502e
-                </a>
-              </td>
-              <td>
-                <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                  0x8a502e
-                </a>
-              </td>
-              <td>0.13Ξ ($443)</td>
-              <td>Aug 31, 2021</td>
-            </tr>
-            <tr className={styles.offered}>
-              <td>Offered</td>
-              <td></td>
-              <td></td>
-              <td>0.13Ξ ($443)</td>
-              <td>Aug 31, 2021</td>
-            </tr>
-            <tr className={styles.mint}>
-              <td>Minted</td>
-              <td></td>
-              <td>
-                <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
-                  0x8a502e
-                </a>
-              </td>
-              <td></td>
-              <td>Aug 31, 2021</td>
-            </tr>
-          </tbody>
-        </table>
+            <table className={styles.transactionTable}>
+              <tbody>
+                <tr>
+                  <th>Type</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Amount</th>
+                  <th>Txn</th>
+                </tr>
+                <tr className={styles.bid}>
+                  <td>Bid</td>
+                  <td>
+                    <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
+                      0x8a502e
+                    </a>
+                  </td>
+                  <td></td>
+                  <td>0.13Ξ ($443)</td>
+                  <td>Aug 31, 2021</td>
+                </tr>
+                <tr className={styles.sold}>
+                  <td>Sold</td>
+                  <td>
+                    <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
+                      0x8a502e
+                    </a>
+                  </td>
+                  <td>
+                    <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
+                      0x8a502e
+                    </a>
+                  </td>
+                  <td>0.13Ξ ($443)</td>
+                  <td>Aug 31, 2021</td>
+                </tr>
+                <tr className={styles.offered}>
+                  <td>Offered</td>
+                  <td></td>
+                  <td></td>
+                  <td>0.13Ξ ($443)</td>
+                  <td>Aug 31, 2021</td>
+                </tr>
+                <tr className={styles.mint}>
+                  <td>Minted</td>
+                  <td></td>
+                  <td>
+                    <a href="https://etherscan.io/address/0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b">
+                      0x8a502e
+                    </a>
+                  </td>
+                  <td></td>
+                  <td>Aug 31, 2021</td>
+                </tr>
+              </tbody>
+            </table>
+          </>
+        )}
       </>
     );
   };
