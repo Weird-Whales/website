@@ -24,7 +24,7 @@ const burnAddress = '0x0000000000000000000000000000000000000000';
 const getSold = (data: any): Transaction[] => {
   const txns = new Array<Transaction>();
 
-  data.forEach((v) => {
+  data.forEach((v: any) => {
     txns.push({
       type: 'Sold',
       from: v.seller.address,
@@ -40,7 +40,7 @@ const getSold = (data: any): Transaction[] => {
 const getOffers = (data: any): Transaction[] => {
   const txns = new Array<Transaction>();
 
-  data.forEach((v) => {
+  data.forEach((v: any) => {
     txns.push({
       type: 'Offer',
       from: v.from_account.address,
@@ -56,7 +56,7 @@ const getOffers = (data: any): Transaction[] => {
 const getTransfers = (data: any): Transaction[] => {
   const txns = new Array<Transaction>();
 
-  data.forEach((v) => {
+  data.forEach((v: any) => {
     txns.push({
       type: 'Transfer',
       from: v.from_account.address,
@@ -72,7 +72,7 @@ const getTransfers = (data: any): Transaction[] => {
 const getBidsEntered = (data: any): Transaction[] => {
   const txns = new Array<Transaction>();
 
-  data.forEach((v) => {
+  data.forEach((v: any) => {
     txns.push({
       type: 'Bid',
       from: v.from_account.address,
@@ -88,7 +88,7 @@ const getBidsEntered = (data: any): Transaction[] => {
 const getBidsWithdrawn = (data: any): Transaction[] => {
   const txns = new Array<Transaction>();
 
-  data.forEach((v) => {
+  data.forEach((v: any) => {
     txns.push({
       type: 'Bid Withdrawn',
       from: v.from_account.address,
@@ -123,7 +123,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
           requestOfferEntered,
           requestTransfer,
           requestBidEntered,
-          //requestBidsWithdrawn,
+          requestBidsWithdrawn,
         ])
         .then(
           axios.spread((...responses) => {
@@ -131,7 +131,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
             const responseOfferEntered = responses[1];
             const responseTransferred = responses[2];
             const responseBidEntered = responses[3];
-            //const requestBidsWithdrawn = responses[4];
+            const requestBidsWithdrawn = responses[4];
 
             let txns = new Array<Transaction>();
 
@@ -149,17 +149,16 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
               responseBidEntered['data']['asset_events'],
             );
 
-            /*
             const bidsWithdrawn = getBidsWithdrawn(
               requestBidsWithdrawn['data']['asset_events'],
-            );*/
+            );
 
             txns = [
               ...sold,
               ...offers,
               ...transfers,
               ...bids,
-              //...bidsWithdrawn,
+              ...bidsWithdrawn,
             ];
             setTxns(txns);
             setIsBusy(false);
