@@ -185,7 +185,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
               </thead>
               <tbody>
                 {txns
-                  .sort((a, b) => b.txnDate - a.txnDate)
+                  .sort((a, b) => b.txnDate.valueOf() - a.txnDate.valueOf())
                   .map((item, i) => {
                     return [
                       <tr key={i} className={item.type}>
