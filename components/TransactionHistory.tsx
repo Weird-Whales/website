@@ -108,6 +108,8 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
     const [isBusy, setIsBusy] = React.useState(true);
 
     useEffect(() => {
+      setIsBusy(true);
+      
       const url = `/api/transactions/${whaleID}`;
       const requestSuccessful = axios.get(`${url}/successful`);
       const requestOfferEntered = axios.get(`${url}/offer_entered`);
@@ -163,7 +165,7 @@ export const TransactionHistory: React.FunctionComponent<{ whaleID: string }> =
             setIsBusy(false);
           }),
         );
-    }, []);
+    }, [whaleID]);
 
     return (
       <>
