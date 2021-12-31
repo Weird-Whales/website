@@ -91,6 +91,14 @@
   line-height: 1.5;
 }
 
+.grayLine {
+  border-bottom: 2px solid #EAEAEA;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 1100px;
+}
+
 .logo {
   height: 1em;
   margin-left: 0.5rem;
@@ -102,3 +110,18 @@
     flex-direction: column;
   }
 }
+
+.subTitle {
+  background: rgb(250,60,107);
+  background: linear-gradient(90deg, rgba(250,60,107,1) 0%, rgba(159,112,221,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subTextLink {
+  text-decoration: none;
+  color: #a070dd;
+  font-weight: bolder;  
+}
+
+

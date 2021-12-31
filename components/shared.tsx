@@ -4,8 +4,8 @@ import styled from 'styled-components';
 export const Section = styled.section`
   display: flex;
   align-items: center;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 `;
 export const Container = styled.div`
   margin-left: auto;

@@ -42,6 +42,9 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
           </Container>
         </Section>
         <Section>
+          <hr className={styles.grayLine} />
+        </Section>
+        <Section>
           <Container>
             <div className={styles.grid}>
               <Link
@@ -92,6 +95,9 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
               </a>
             </div>
           </Container>
+        </Section>
+        <Section>
+          <hr className={styles.grayLine} />
         </Section>
         <Section>
           <Container>
@@ -165,6 +171,213 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
                 </td>
               </tr>
             </table>
+          </Container>
+        </Section>
+        <Section>
+          <hr className={styles.grayLine} />
+        </Section>
+        <Section>
+          <Container>
+            <h2 className={styles.subTitle}>WEIRD WHALES</h2>
+            <p>
+              Weird Whales is an NFT collection created by twelve-year-old
+              programmer Benyamin from London, UK who began learning to code at
+              the age of five. The project started as an educational endeavour.
+              Benyamin created all the base and trait layers for the whales
+              (normal, zombie, ape, alien), he then generated 3350 unique
+              digital collectibles programmatically using an open-source Python{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://github.com/benyaminahmed/nft-image-generator"
+              >
+                script
+              </a>
+              . The project success and backstory forms a core part of early
+              NFT, generative art and digital collectible history. It has been
+              featured in{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://tinyurl.com/4kwsrp4r"
+              >
+                The New York Times
+              </a>
+              ,{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://tinyurl.com/2yxjv8ae"
+              >
+                Business Insider
+              </a>
+              ,{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://tinyurl.com/3xezwxkd"
+              >
+                CNBC
+              </a>
+              ,{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://tinyurl.com/unpst3fu"
+              >
+                The Telegraph
+              </a>
+              ,{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://www.theguardian.com/technology/2021/aug/27/boy-12-makes-29000-in-non-fungible-tokens-with-digital-whale-art"
+              >
+                The Guardian
+              </a>
+              ,{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://www.itv.com/news/2021-08-27/meet-the-12-year-old-coder-who-made-290000-from-selling-whale-nfts"
+              >
+                ITV News
+              </a>
+              ,{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://www.bbc.co.uk/news/technology-58343062"
+              >
+                BBC
+              </a>
+              ,{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://nypost.com/2021/08/27/12-year-old-reportedly-set-to-earn-400k-from-selling-nfts/"
+              >
+                NY Post
+              </a>
+              ,{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://decrypt.co/76759/weird-whales-nfts-12-year-old-ethereum"
+              >
+                Decrypt
+              </a>{' '}
+              and many more.
+            </p>
+          </Container>
+        </Section>
+        <Section>
+          <hr className={styles.grayLine} />
+        </Section>
+        <Section>
+          <Container>
+            <h2 className={styles.subTitle}>THE SPECS</h2>
+            <p>
+              Weird Whales is a collection of NFTs - unique digital
+              collectibles, swimming on the Ethereum Blockchain. 3,350 whales
+              have been programmatically generated from an ocean of
+              combinations, each with unique characteristics and different
+              traits. Weird Whales are ERC-721 tokens on the{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://etherscan.io/address/0x96ed81c7f4406eff359e27bff6325dc3c9e042bd"
+              >
+                Ethereum blockchain
+              </a>{' '}
+              and hosted on IPFS.
+            </p>
+
+            <table>
+              <tr>
+                <th>Trait</th>
+                <th>Number</th>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href=""
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Background
+                  </a>
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href=""
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Base
+                  </a>
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a
+                    href=""
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Eye Accessory
+                  </a>
+                </td>
+                <td>
+                  {
+                    6
+                  }
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href=""
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Headgear
+                  </a>
+                </td>
+                <td>
+                  {
+                    16
+                  }
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href=""
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Mouth Accessory
+                  </a>
+                </td>
+                <td>
+                  {
+                    3
+                  }
+                </td>
+              </tr>
+            </table>
+
+            
           </Container>
         </Section>
       </main>
