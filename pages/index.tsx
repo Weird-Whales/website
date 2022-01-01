@@ -42,9 +42,6 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
           </Container>
         </Section>
         <Section>
-          <hr className={styles.grayLine} />
-        </Section>
-        <Section>
           <Container>
             <div className={styles.grid}>
               <Link
@@ -292,92 +289,54 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
               </a>{' '}
               and hosted on IPFS.
             </p>
+          </Container>
+        </Section>
+        <Section>
+          <hr className={styles.grayLine} />
+        </Section>
+        <Section>
+          <Container>
+            <h2 className={styles.subTitle}>ABOUT THE DEV</h2>
 
-            <table>
-              <tr>
-                <th>Trait</th>
-                <th>Number</th>
-              </tr>
-              <tr>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Background
-                  </a>
-                </td>
-                <td>
-                  8
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Base
-                  </a>
-                </td>
-                <td>
-                  4
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Eye Accessory
-                  </a>
-                </td>
-                <td>
-                  {
-                    6
-                  }
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Headgear
-                  </a>
-                </td>
-                <td>
-                  {
-                    16
-                  }
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a
-                    href=""
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Mouth Accessory
-                  </a>
-                </td>
-                <td>
-                  {
-                    3
-                  }
-                </td>
-              </tr>
-            </table>
-
-            
+            <FlexRow>
+              <p>
+                Benyamin Ahmed is a twelve-year-old programmer from London, UK.
+                He began learning to code at the age of five. In 2021 at the
+                start of the NFT bull run he launched an early profile picture
+                collection (Weird Whales) with the help of the Open Source and
+                NFT community. The project went viral and hit the international
+                press becoming one of the most publicised NFT projects: The New
+                York Times, Business Insider, CNBC, The Telegraph, The Guardian,
+                ITV News, BBC, NY Post, Decrypt and many more. He is thankful
+                for this community that is educating him on software
+                development, web3.0, blockchains and the metaverse. You can
+                follow his progress on{' '}
+                <a
+                  target="_blank"
+                  className={styles.subTextLink}
+                  href="https://twitter.com/ObiWanBenoni"
+                >
+                  Twitter
+                </a>
+                ,{' '}
+                <a
+                  target="_blank"
+                  className={styles.subTextLink}
+                  href="https://www.codewars.com/users/benyaminahmed"
+                >
+                  Codewars
+                </a>{' '}
+                and{' '}
+                <a
+                  target="_blank"
+                  className={styles.subTextLink}
+                  href="https://github.com/benyaminahmed"
+                >
+                  GitHub
+                </a>
+                .
+              </p>
+            </FlexRow>
           </Container>
         </Section>
       </main>
