@@ -3,6 +3,7 @@ export const routes = {
   internal: {
     whale: '/whale/',
     provenance: '/provenance/',
+    attributes: '/attributes/',
   },
   external: {
     rawImageRoot600px: `${githubImages}/raw/main/optimized-images/600x600/`,

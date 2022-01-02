@@ -30,6 +30,11 @@ export const TopNav = () => {
           <span style={{ margin: '30px' }}>Provenance</span>
         </a>
       </Link>
+      <Link href={routes.internal.attributes}>
+        <a>
+          <span style={{ margin: '30px' }}>Attributes</span>
+        </a>
+      </Link>
     </Header>
   );
 };
