@@ -1,21 +1,25 @@
 .title {
-    margin-left: 100px;
+  margin-left: 100px;
 }
 
 .table {
-    margin-left: 100px;
-    margin-bottom: 30px;
+  margin-left: 100px;
+  margin-bottom: 30px;
 }
 
 .whaleTypes {
-    margin-left: 100px;
-    margin-top: 50px;
+  margin-left: 100px;
+  margin-top: 50px;
 }
 
 .attribute {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .columName {
-    font-size: 20px;
+  font-size: 20px;
+}
+
+.columnElement {
+  font-size: 20px;
 }
