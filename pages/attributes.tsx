@@ -1,5 +1,23 @@
 import Image from 'next/image';
 import styles from '../styles/Attributes.module.css';
+import { routes } from '../utils/routes';
+
+const WhaleImage: React.FunctionComponent<{ whaleID: number; type: string }> =
+  ({ whaleID, type }) => {
+    return (
+      <>
+        <a target="_blank" href={`${routes.internal.whale}/${whaleID}`}>
+          <Image
+            src={`/images/${type}/${whaleID}.png`}
+            width="50px"
+            height="50px"
+            title={`Whale #${whaleID}`}
+          ></Image>
+        </a>
+      </>
+    );
+  };
+
 const Attributes = () => {
   return (
     <>
@@ -19,46 +37,14 @@ const Attributes = () => {
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
           <td>
-            <Image
-              src="/images/aliens/1594.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/aliens/578.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/aliens/2878.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/aliens/3063.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/aliens/1813.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/aliens/3318.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/aliens/183.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/aliens/1108.png"
-              width="50px"
-              height="50px"
-            ></Image>
+            <WhaleImage whaleID={1594} type="aliens" />
+            <WhaleImage whaleID={578} type="aliens" />
+            <WhaleImage whaleID={2878} type="aliens" />
+            <WhaleImage whaleID={3063} type="aliens" />
+            <WhaleImage whaleID={1813} type="aliens" />
+            <WhaleImage whaleID={3318} type="aliens" />
+            <WhaleImage whaleID={183} type="aliens" />
+            <WhaleImage whaleID={1108} type="aliens" />
           </td>
         </tr>
         <tr>
@@ -67,46 +53,14 @@ const Attributes = () => {
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
           <td>
-            <Image
-              src="/images/apes/1170.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/apes/2730.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/apes/589.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/apes/220.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/apes/1871.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/apes/2276.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/apes/3041.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/apes/406.png"
-              width="50px"
-              height="50px"
-            ></Image>
+            <WhaleImage whaleID={1170} type="apes" />
+            <WhaleImage whaleID={2730} type="apes" />
+            <WhaleImage whaleID={589} type="apes" />
+            <WhaleImage whaleID={220} type="apes" />
+            <WhaleImage whaleID={1871} type="apes" />
+            <WhaleImage whaleID={2276} type="apes" />
+            <WhaleImage whaleID={3041} type="apes" />
+            <WhaleImage whaleID={406} type="apes" />
           </td>
         </tr>
 
@@ -116,46 +70,14 @@ const Attributes = () => {
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
           <td>
-            <Image
-              src="/images/zombies/189.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/zombies/320.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/zombies/364.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/zombies/3268.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/zombies/1465.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/zombies/2185.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/zombies/687.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/zombies/34.png"
-              width="50px"
-              height="50px"
-            ></Image>
+            <WhaleImage whaleID={189} type="zombies" />
+            <WhaleImage whaleID={320} type="zombies" />
+            <WhaleImage whaleID={364} type="zombies" />
+            <WhaleImage whaleID={3268} type="zombies" />
+            <WhaleImage whaleID={1465} type="zombies" />
+            <WhaleImage whaleID={2185} type="zombies" />
+            <WhaleImage whaleID={687} type="zombies" />
+            <WhaleImage whaleID={34} type="zombies" />
           </td>
         </tr>
         <tr>
