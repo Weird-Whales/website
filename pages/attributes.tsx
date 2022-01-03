@@ -86,46 +86,14 @@ const Attributes = () => {
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
           <td>
-            <Image
-              src="/images/normals/72.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/normals/666.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/normals/855.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/normals/1306.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/normals/2111.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/normals/2282.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/normals/2474.png"
-              width="50px"
-              height="50px"
-            ></Image>
-            <Image
-              src="/images/normals/2634.png"
-              width="50px"
-              height="50px"
-            ></Image>
+            <WhaleImage whaleID={72} type="normals" />
+            <WhaleImage whaleID={666} type="normals" />
+            <WhaleImage whaleID={855} type="normals" />
+            <WhaleImage whaleID={1306} type="normals" />
+            <WhaleImage whaleID={2111} type="normals" />
+            <WhaleImage whaleID={2282} type="normals" />
+            <WhaleImage whaleID={2474} type="normals" />
+            <WhaleImage whaleID={2634} type="normals" />
           </td>
         </tr>
       </table>
@@ -144,14 +112,32 @@ const Attributes = () => {
           <td className={styles.columnElement}>53</td>
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
-          <td>-</td>
+          <td>
+            <WhaleImage whaleID={884} type="police-cap" />
+            <WhaleImage whaleID={927} type="police-cap" />
+            <WhaleImage whaleID={1085} type="police-cap" />
+            <WhaleImage whaleID={1529} type="police-cap" />
+            <WhaleImage whaleID={78} type="police-cap" />
+            <WhaleImage whaleID={2505} type="police-cap" />
+            <WhaleImage whaleID={2673} type="police-cap" />
+            <WhaleImage whaleID={3196} type="police-cap" />
+          </td>
         </tr>
         <tr>
           <td className={styles.attribute}>Fez</td>
           <td className={styles.columnElement}>163</td>
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
-          <td>-</td>
+          <td>
+            <WhaleImage whaleID={297} type="fez" />
+            <WhaleImage whaleID={470} type="fez" />
+            <WhaleImage whaleID={860} type="fez" />
+            <WhaleImage whaleID={1253} type="fez" />
+            <WhaleImage whaleID={1447} type="fez" />
+            <WhaleImage whaleID={2631} type="fez" />
+            <WhaleImage whaleID={2713} type="fez" />
+            <WhaleImage whaleID={3313} type="fez" />
+          </td>
         </tr>
 
         <tr>
@@ -159,7 +145,16 @@ const Attributes = () => {
           <td className={styles.columnElement}>175</td>
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
-          <td>-</td>
+          <td>
+          <WhaleImage whaleID={189} type="do-rag" />
+          <WhaleImage whaleID={838} type="do-rag" />
+          <WhaleImage whaleID={1177} type="do-rag" />
+          <WhaleImage whaleID={1539} type="do-rag" />
+          <WhaleImage whaleID={2264} type="do-rag" />          
+          <WhaleImage whaleID={2466} type="do-rag" />
+          <WhaleImage whaleID={2407} type="do-rag" />
+          <WhaleImage whaleID={3035} type="do-rag" />
+          </td>
         </tr>
         <tr>
           <td className={styles.attribute}>Cowboy Hat</td>
