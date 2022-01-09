@@ -146,14 +146,14 @@ const Attributes = () => {
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
           <td>
-          <WhaleImage whaleID={189} type="do-rag" />
-          <WhaleImage whaleID={838} type="do-rag" />
-          <WhaleImage whaleID={1177} type="do-rag" />
-          <WhaleImage whaleID={1539} type="do-rag" />
-          <WhaleImage whaleID={2264} type="do-rag" />          
-          <WhaleImage whaleID={2466} type="do-rag" />
-          <WhaleImage whaleID={2407} type="do-rag" />
-          <WhaleImage whaleID={3035} type="do-rag" />
+            <WhaleImage whaleID={189} type="do-rag" />
+            <WhaleImage whaleID={838} type="do-rag" />
+            <WhaleImage whaleID={1177} type="do-rag" />
+            <WhaleImage whaleID={1539} type="do-rag" />
+            <WhaleImage whaleID={2264} type="do-rag" />
+            <WhaleImage whaleID={2466} type="do-rag" />
+            <WhaleImage whaleID={2407} type="do-rag" />
+            <WhaleImage whaleID={3035} type="do-rag" />
           </td>
         </tr>
         <tr>
@@ -161,14 +161,32 @@ const Attributes = () => {
           <td className={styles.columnElement}>175</td>
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
-          <td>-</td>
+          <td>
+            <WhaleImage whaleID={364} type="cowboy-hat" />
+            <WhaleImage whaleID={481} type="cowboy-hat" />
+            <WhaleImage whaleID={3009} type="cowboy-hat" />
+            <WhaleImage whaleID={1302} type="cowboy-hat" />
+            <WhaleImage whaleID={1883} type="cowboy-hat" />
+            <WhaleImage whaleID={1822} type="cowboy-hat" />
+            <WhaleImage whaleID={2108} type="cowboy-hat" />
+            <WhaleImage whaleID={931} type="cowboy-hat" />
+          </td>
         </tr>
         <tr>
           <td className={styles.attribute}>Knitted Cap</td>
           <td className={styles.columnElement}>181</td>
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
-          <td>-</td>
+          <td>
+            <WhaleImage whaleID={364} type="knitted-cap" />
+            <WhaleImage whaleID={481} type="knitted-cap" />
+            <WhaleImage whaleID={3009} type="knitted-cap" />
+            <WhaleImage whaleID={1302} type="knitted-cap" />
+            <WhaleImage whaleID={1883} type="knitted-cap" />
+            <WhaleImage whaleID={1822} type="knitted-cap" />
+            <WhaleImage whaleID={2108} type="knitted-cap" />
+            <WhaleImage whaleID={931} type="knitted-cap" />
+          </td>
         </tr>
         <tr>
           <td className={styles.attribute}>Tiara</td>
