@@ -277,8 +277,8 @@ const Attributes = () => {
             <WhaleImage whaleID={320} type="headband"  />
             <WhaleImage whaleID={514} type="headband" />
             <WhaleImage whaleID={682} type="headband" />
-            <WhaleImage whaleID={1450} type="headband" />
             <WhaleImage whaleID={1748} type="headband" />
+            <WhaleImage whaleID={1450} type="headband" />
             <WhaleImage whaleID={1857} type="headband" />
             <WhaleImage whaleID={2124} type="headband" />
             <WhaleImage whaleID={2610} type="headband" />
@@ -289,7 +289,16 @@ const Attributes = () => {
           <td className={styles.columnElement}>191</td>
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
-          <td>-</td>
+          <td>
+            <WhaleImage whaleID={857} type="cap-forward"  />
+            <WhaleImage whaleID={1170} type="cap-forward" />
+            <WhaleImage whaleID={1247} type="cap-forward" />
+            <WhaleImage whaleID={1312} type="cap-forward" />
+            <WhaleImage whaleID={2201} type="cap-forward" />
+            <WhaleImage whaleID={2282} type="cap-forward" />
+            <WhaleImage whaleID={2342} type="cap-forward" />
+            <WhaleImage whaleID={3111} type="cap-forward" />
+            </td>
         </tr>
         <tr>
           <td className={styles.attribute}>Fedora</td>
