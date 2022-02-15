@@ -525,14 +525,14 @@ const Attributes = () => {
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
           <td>
-            <WhaleImage whaleID={1594} type="aliens" />
-            <WhaleImage whaleID={578} type="aliens" />
-            <WhaleImage whaleID={2878} type="aliens" />
-            <WhaleImage whaleID={3063} type="aliens" />
-            <WhaleImage whaleID={1813} type="aliens" />
-            <WhaleImage whaleID={3318} type="aliens" />
-            <WhaleImage whaleID={183} type="aliens" />
-            <WhaleImage whaleID={1108} type="aliens" />
+            <WhaleImage whaleID={460} type="two-traits" />
+            <WhaleImage whaleID={650} type="two-traits" />
+            <WhaleImage whaleID={784} type="two-traits" />
+            <WhaleImage whaleID={786} type="two-traits" />
+            <WhaleImage whaleID={2017} type="two-traits" />
+            <WhaleImage whaleID={2139} type="two-traits" />
+            <WhaleImage whaleID={2441} type="two-traits" />
+            <WhaleImage whaleID={2958} type="two-traits" />
           </td>
         </tr>
         <tr>
