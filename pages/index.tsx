@@ -1,8 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next';
+import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { default as React } from 'react';
+import { default as React, useState } from 'react';
 import { Container, FlexRow, Section } from '../components/shared';
 import { WhaleImage } from '../components/WhaleImage';
 import verifiedBadge from '../public/images/verified-badge.svg';
@@ -16,6 +17,15 @@ type ServerHydratedProps = {
 };
 
 const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
+  const [searchID, setSearchID] = useState(69);
+
+  const router = useRouter();
+
+  const handleBlurOnSearch = (e: any) => {
+    console.log(`handleBlurOnSearch${e.target.value}`);
+    setSearchID(e.target.value);
+  };
+
   return (
     <div>
       <Head>
@@ -353,12 +363,16 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
         </Section>
         <Section>
           <Container>
-          <h2 className={styles.subTitle}>SEARCH WHALES</h2>
+            <h2 className={styles.subTitle}>SEARCH WHALES</h2>
             <FlexRow>
-            <input type="text"/>
-            <button onClick={() => {
-              alert('hello')
-            }}>Click</button>
+              <input type="text" onBlur={handleBlurOnSearch} />
+              <button
+                onClick={() => {
+                  router.push(`${routes.internal.whale}${searchID}`);
+                }}
+              >
+                View {searchID}
+              </button>
             </FlexRow>
           </Container>
         </Section>
