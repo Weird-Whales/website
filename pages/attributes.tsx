@@ -541,14 +541,14 @@ const Attributes = () => {
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
           <td>
-            <WhaleImage whaleID={1170} type="apes" />
-            <WhaleImage whaleID={2730} type="apes" />
-            <WhaleImage whaleID={589} type="apes" />
-            <WhaleImage whaleID={220} type="apes" />
-            <WhaleImage whaleID={1871} type="apes" />
-            <WhaleImage whaleID={2276} type="apes" />
-            <WhaleImage whaleID={3041} type="apes" />
-            <WhaleImage whaleID={406} type="apes" />
+            <WhaleImage whaleID={183} type="three-traits" />
+            <WhaleImage whaleID={319} type="three-traits" />
+            <WhaleImage whaleID={1417} type="three-traits" />
+            <WhaleImage whaleID={1477} type="three-traits" />
+            <WhaleImage whaleID={1507} type="three-traits" />
+            <WhaleImage whaleID={1776} type="three-traits" />
+            <WhaleImage whaleID={2588} type="three-traits" />
+            <WhaleImage whaleID={2981} type="three-traits" />
           </td>
         </tr>
 
@@ -558,14 +558,14 @@ const Attributes = () => {
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
           <td>
-            <WhaleImage whaleID={189} type="zombies" />
-            <WhaleImage whaleID={320} type="zombies" />
-            <WhaleImage whaleID={364} type="zombies" />
-            <WhaleImage whaleID={3268} type="zombies" />
-            <WhaleImage whaleID={1465} type="zombies" />
-            <WhaleImage whaleID={2185} type="zombies" />
-            <WhaleImage whaleID={687} type="zombies" />
-            <WhaleImage whaleID={34} type="zombies" />
+            <WhaleImage whaleID={598} type="four-traits" />
+            <WhaleImage whaleID={1085} type="four-traits" />
+            <WhaleImage whaleID={1250} type="four-traits" />
+            <WhaleImage whaleID={1529} type="four-traits" />
+            <WhaleImage whaleID={1660} type="four-traits" />
+            <WhaleImage whaleID={1746} type="four-traits" />
+            <WhaleImage whaleID={2891} type="four-traits" />
+            <WhaleImage whaleID={3303} type="four-traits" />
           </td>
         </tr>
         <tr>
@@ -574,14 +574,14 @@ const Attributes = () => {
           <td className={styles.columnElement}>-</td>
           <td className={styles.columnElement}>-</td>
           <td>
-            <WhaleImage whaleID={72} type="normals" />
-            <WhaleImage whaleID={666} type="normals" />
-            <WhaleImage whaleID={855} type="normals" />
-            <WhaleImage whaleID={1306} type="normals" />
-            <WhaleImage whaleID={2111} type="normals" />
-            <WhaleImage whaleID={2282} type="normals" />
-            <WhaleImage whaleID={2474} type="normals" />
-            <WhaleImage whaleID={2634} type="normals" />
+            <WhaleImage whaleID={463} type="five-traits" />
+            <WhaleImage whaleID={596} type="five-traits" />
+            <WhaleImage whaleID={847} type="five-traits" />
+            <WhaleImage whaleID={1500} type="five-traits" />
+            <WhaleImage whaleID={2438} type="five-traits" />
+            <WhaleImage whaleID={2863} type="five-traits" />
+            <WhaleImage whaleID={2899} type="five-traits" />
+            <WhaleImage whaleID={3296} type="five-traits" />
           </td>
         </tr>
       </table>
