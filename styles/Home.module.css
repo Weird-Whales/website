@@ -92,7 +92,7 @@
 }
 
 .grayLine {
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid #eaeaea;
   border-top: none;
   border-right: none;
   border-left: none;
@@ -112,8 +112,12 @@
 }
 
 .subTitle {
-  background: rgb(250,60,107);
-  background: linear-gradient(90deg, rgba(250,60,107,1) 0%, rgba(159,112,221,1) 100%);
+  background: rgb(250, 60, 107);
+  background: linear-gradient(
+    90deg,
+    rgba(250, 60, 107, 1) 0%,
+    rgba(159, 112, 221, 1) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -121,11 +125,38 @@
 .subTextLink {
   text-decoration: none;
   color: #a070dd;
-  font-weight: bolder;  
+  font-weight: bolder;
 }
 
-.benyaminPicture {
-  border-radius: 50%;
+.searchBar {
+  background-color: #4654e1;
+  width: 300px;
+  height: 44px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
+.searchBarInput {
+  all: unset;
+  font: 16px system-ui;
+  height: 100%;
+  width: 100%;
+  padding: 6px 10px;
+}
 
+.searchBarSvg {
+  color: #fff;
+  fill: currentColor;
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+}
+
+.searchBarButton {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
