@@ -17,7 +17,7 @@ type ServerHydratedProps = {
 };
 
 const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
-  const [searchID, setSearchID] = useState(69);
+  const [searchID, setSearchID] = useState(null);
 
   const router = useRouter();
 
