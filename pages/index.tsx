@@ -348,6 +348,20 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
             </FlexRow>
           </Container>
         </Section>
+        <Section>
+          <hr className={styles.grayLine} />
+        </Section>
+        <Section>
+          <Container>
+          <h2 className={styles.subTitle}>SEARCH WHALES</h2>
+            <FlexRow>
+            <input type="text"/>
+            <button onClick={() => {
+              alert('hello')
+            }}>Click</button>
+            </FlexRow>
+          </Container>
+        </Section>
       </main>
     </div>
   );
