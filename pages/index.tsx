@@ -264,7 +264,16 @@ const Home: NextPage<ServerHydratedProps> = ({ randomWhaleIDs }) => {
               >
                 Decrypt
               </a>{' '}
-              and many more.
+              and many more. Benyamin was invited to{' '}
+              <a
+                className={styles.subTextLink}
+                target="_blank"
+                href="https://youtu.be/XHUWaLcLau8"
+              >
+                speak
+              </a>{' '}
+              about NFTs at Pembroke College, Oxford University. He is the
+              youngest person to lecture at the college, founded 1624.
             </p>
           </Container>
         </Section>
