@@ -7,7 +7,7 @@
   </b>
 
   <br>
-  <br><i>Here lies the code for <a href="https://weird-whales.com">weird-whales.com</a></i>
+  <br><i>Here lies the code for <a href="https://weird-whales.com">weirdwhales.com</a></i>
   <br/>
   <i>This codebase will soon replace weirdwhalesnft.com. <a href="https://github.com/orgs/Weird-Whales/projects/2">Watch progress towards this here</a></i>
 </p>
