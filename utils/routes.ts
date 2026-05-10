@@ -1,11 +1,16 @@
 const githubImages = 'https://github.com/Weird-Whales/images';
+// Hit raw.githubusercontent.com directly rather than github.com/.../raw/...
+// The latter is just a redirect to the former, and it occasionally 502s on
+// individual files (e.g. #3115 was returning 502 for hours).
+const rawCdn =
+  'https://raw.githubusercontent.com/Weird-Whales/images/main';
 export const routes = {
   internal: {
     whale: '/whale/',
     provenance: '/provenance/',
   },
   external: {
-    rawImageRoot600px: `${githubImages}/raw/main/optimized-images/600x600/`,
+    rawImageRoot600px: `${rawCdn}/optimized-images/600x600/`,
     githubImages,
     openSeaWWHome: 'https://opensea.io/collection/weirdwhales',
     openSeaWhaleBasePath:

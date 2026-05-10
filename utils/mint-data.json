@@ -1,0 +1,488 @@
+{
+  "contract": "0x96Ed81c7F4406Eff359E27BfF6325DC3c9e042BD",
+  "generatedAt": "2026-05-09T18:07:15.473Z",
+  "totalTxs": 6217,
+  "totalMintAttempts": 771,
+  "successfulMints": 570,
+  "failedMints": 201,
+  "uniqueMinters": 438,
+  "totalEthPaid": 105.775,
+  "totalFeesPaid": 15.796657940283062,
+  "successEthEarned": 83.75,
+  "failedEthRefunded": 22.1713,
+  "failedGasBurnedByBidders": 0.21297787560285286,
+  "peak": {
+    "ts": 1626729900000,
+    "successInBucket": 88,
+    "failedInBucket": 153,
+    "bucketMs": 300000
+  },
+  "buckets": [
+    {
+      "ts": 1626689100000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.016554832,
+      "whalesMinted": 10
+    },
+    {
+      "ts": 1626698400000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.032166717,
+      "whalesMinted": 8
+    },
+    {
+      "ts": 1626700500000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.011904228,
+      "whalesMinted": 2
+    },
+    {
+      "ts": 1626700800000,
+      "success": 2,
+      "failed": 0,
+      "feesEth": 0.039483516,
+      "whalesMinted": 8
+    },
+    {
+      "ts": 1626701100000,
+      "success": 3,
+      "failed": 0,
+      "feesEth": 0.0557118587,
+      "whalesMinted": 12
+    },
+    {
+      "ts": 1626701400000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.00483568,
+      "whalesMinted": 1
+    },
+    {
+      "ts": 1626701700000,
+      "success": 3,
+      "failed": 0,
+      "feesEth": 0.046930567,
+      "whalesMinted": 12
+    },
+    {
+      "ts": 1626702000000,
+      "success": 2,
+      "failed": 0,
+      "feesEth": 0.014284553,
+      "whalesMinted": 3
+    },
+    {
+      "ts": 1626702300000,
+      "success": 2,
+      "failed": 0,
+      "feesEth": 0.013471019,
+      "whalesMinted": 3
+    },
+    {
+      "ts": 1626702600000,
+      "success": 3,
+      "failed": 0,
+      "feesEth": 0.06407301658163472,
+      "whalesMinted": 14
+    },
+    {
+      "ts": 1626702900000,
+      "success": 3,
+      "failed": 0,
+      "feesEth": 0.019720429,
+      "whalesMinted": 4
+    },
+    {
+      "ts": 1626703200000,
+      "success": 2,
+      "failed": 0,
+      "feesEth": 0.023520527,
+      "whalesMinted": 6
+    },
+    {
+      "ts": 1626703500000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.011053926,
+      "whalesMinted": 2
+    },
+    {
+      "ts": 1626703800000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.004541805,
+      "whalesMinted": 1
+    },
+    {
+      "ts": 1626704100000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.016356366,
+      "whalesMinted": 5
+    },
+    {
+      "ts": 1626705000000,
+      "success": 1,
+      "failed": 1,
+      "feesEth": 0.00480315,
+      "whalesMinted": 1
+    },
+    {
+      "ts": 1626705900000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.004205375,
+      "whalesMinted": 1
+    },
+    {
+      "ts": 1626706200000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.007652718,
+      "whalesMinted": 2
+    },
+    {
+      "ts": 1626708000000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.0371197904,
+      "whalesMinted": 10
+    },
+    {
+      "ts": 1626708600000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.008786454,
+      "whalesMinted": 2
+    },
+    {
+      "ts": 1626711600000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.010770492,
+      "whalesMinted": 2
+    },
+    {
+      "ts": 1626712800000,
+      "success": 2,
+      "failed": 0,
+      "feesEth": 0.019199696,
+      "whalesMinted": 3
+    },
+    {
+      "ts": 1626716100000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.00773789,
+      "whalesMinted": 1
+    },
+    {
+      "ts": 1626719700000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.011053926,
+      "whalesMinted": 2
+    },
+    {
+      "ts": 1626720000000,
+      "success": 2,
+      "failed": 0,
+      "feesEth": 0.08137138749178968,
+      "whalesMinted": 20
+    },
+    {
+      "ts": 1626720900000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.00538288,
+      "whalesMinted": 1
+    },
+    {
+      "ts": 1626721500000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.011162284,
+      "whalesMinted": 3
+    },
+    {
+      "ts": 1626722100000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.019501821,
+      "whalesMinted": 5
+    },
+    {
+      "ts": 1626722400000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.004205375,
+      "whalesMinted": 1
+    },
+    {
+      "ts": 1626723000000,
+      "success": 1,
+      "failed": 0,
+      "feesEth": 0.003532515,
+      "whalesMinted": 1
+    },
+    {
+      "ts": 1626724200000,
+      "success": 5,
+      "failed": 0,
+      "feesEth": 0.047679372,
+      "whalesMinted": 16
+    },
+    {
+      "ts": 1626724500000,
+      "success": 3,
+      "failed": 0,
+      "feesEth": 0.050240439461,
+      "whalesMinted": 19
+    },
+    {
+      "ts": 1626724800000,
+      "success": 3,
+      "failed": 0,
+      "feesEth": 0.0214210097,
+      "whalesMinted": 8
+    },
+    {
+      "ts": 1626725100000,
+      "success": 2,
+      "failed": 0,
+      "feesEth": 0.00952668275,
+      "whalesMinted": 3
+    },
+    {
+      "ts": 1626725400000,
+      "success": 2,
+      "failed": 0,
+      "feesEth": 0.00807432,
+      "whalesMinted": 2
+    },
+    {
+      "ts": 1626725700000,
+      "success": 8,
+      "failed": 0,
+      "feesEth": 0.093049753,
+      "whalesMinted": 31
+    },
+    {
+      "ts": 1626726000000,
+      "success": 6,
+      "failed": 0,
+      "feesEth": 0.055081371,
+      "whalesMinted": 19
+    },
+    {
+      "ts": 1626726300000,
+      "success": 5,
+      "failed": 0,
+      "feesEth": 0.0406830472,
+      "whalesMinted": 13
+    },
+    {
+      "ts": 1626726600000,
+      "success": 6,
+      "failed": 0,
+      "feesEth": 0.1682909755,
+      "whalesMinted": 55
+    },
+    {
+      "ts": 1626726900000,
+      "success": 8,
+      "failed": 0,
+      "feesEth": 0.2917613966,
+      "whalesMinted": 89
+    },
+    {
+      "ts": 1626727200000,
+      "success": 5,
+      "failed": 0,
+      "feesEth": 0.0958793422,
+      "whalesMinted": 25
+    },
+    {
+      "ts": 1626727500000,
+      "success": 7,
+      "failed": 0,
+      "feesEth": 0.119545478,
+      "whalesMinted": 29
+    },
+    {
+      "ts": 1626727800000,
+      "success": 10,
+      "failed": 0,
+      "feesEth": 0.222859822,
+      "whalesMinted": 56
+    },
+    {
+      "ts": 1626728100000,
+      "success": 11,
+      "failed": 0,
+      "feesEth": 0.16691733,
+      "whalesMinted": 40
+    },
+    {
+      "ts": 1626728400000,
+      "success": 29,
+      "failed": 0,
+      "feesEth": 0.812961526,
+      "whalesMinted": 196
+    },
+    {
+      "ts": 1626728700000,
+      "success": 45,
+      "failed": 0,
+      "feesEth": 0.79887928292,
+      "whalesMinted": 194
+    },
+    {
+      "ts": 1626729000000,
+      "success": 63,
+      "failed": 0,
+      "feesEth": 1.638785403,
+      "whalesMinted": 393
+    },
+    {
+      "ts": 1626729300000,
+      "success": 85,
+      "failed": 0,
+      "feesEth": 1.5723741801005,
+      "whalesMinted": 380
+    },
+    {
+      "ts": 1626729600000,
+      "success": 135,
+      "failed": 0,
+      "feesEth": 4.35151537612,
+      "whalesMinted": 934
+    },
+    {
+      "ts": 1626729900000,
+      "success": 88,
+      "failed": 153,
+      "feesEth": 4.5829026759847995,
+      "whalesMinted": 702
+    },
+    {
+      "ts": 1626730200000,
+      "success": 0,
+      "failed": 16,
+      "feesEth": 0.0153332928133392,
+      "whalesMinted": 0
+    },
+    {
+      "ts": 1626730500000,
+      "success": 0,
+      "failed": 18,
+      "feesEth": 0.01540494016,
+      "whalesMinted": 0
+    },
+    {
+      "ts": 1626730800000,
+      "success": 0,
+      "failed": 9,
+      "feesEth": 0.0063961296,
+      "whalesMinted": 0
+    }
+  ],
+  "totalWhalesMinted": 3350,
+  "milestones": [
+    {
+      "pct": 10,
+      "whales": 335,
+      "ts": 1626727031000
+    },
+    {
+      "pct": 25,
+      "whales": 837,
+      "ts": 1626728860000
+    },
+    {
+      "pct": 50,
+      "whales": 1675,
+      "ts": 1626729544000
+    },
+    {
+      "pct": 75,
+      "whales": 2512,
+      "ts": 1626729861000
+    },
+    {
+      "pct": 90,
+      "whales": 3015,
+      "ts": 1626730008000
+    },
+    {
+      "pct": 100,
+      "whales": 3350,
+      "ts": 1626730056000
+    }
+  ],
+  "topMinters": [
+    {
+      "address": "0xbff79922fcbf93f9c30abb22322b271460c6bebb",
+      "whaleCount": 100
+    },
+    {
+      "address": "0x9859a67e2191e1198d9260c2ff5ea858d09116e0",
+      "whaleCount": 91
+    },
+    {
+      "address": "0x7bad2138b818079db0bc7df5185b6bae9589370d",
+      "whaleCount": 80
+    },
+    {
+      "address": "0x6761bcaf2b2156c058634d9772f07374d6edef1d",
+      "whaleCount": 64
+    },
+    {
+      "address": "0x162f3a373a8605fd0da52b1b6d44dc8bcc97f0aa",
+      "whaleCount": 60
+    },
+    {
+      "address": "0x7768a6fa6f9812f3aa91a9f827e5948f7e0b5486",
+      "whaleCount": 60
+    },
+    {
+      "address": "0x0717ddfe299daa44282b26d8703cede2163bed48",
+      "whaleCount": 60
+    },
+    {
+      "address": "0x0d08ad2ab7893c04ecb460cbb6822b11c9e8904a",
+      "whaleCount": 60
+    },
+    {
+      "address": "0x55a9c5180dcafc98d99d3f3e4b248e9156b12ac1",
+      "whaleCount": 60
+    },
+    {
+      "address": "0x6186290b28d511bff971631c916244a9fc539cfe",
+      "whaleCount": 60
+    }
+  ],
+  "firstMintTx": {
+    "hash": "0x17654fa3a9b49fc1688df27d195ffb59a17e2b7b03d69aefc3953300f8b1504b",
+    "timestamp": "2021-07-19T10:06:00.000Z",
+    "from": "0x8a502e0e3eda70eae505a6fa0fa49eb29b85fe5b",
+    "blockNumber": 12856383
+  },
+  "lastMintTx": {
+    "hash": "0x1b400823eb79758109d6be40826c05ad04def207d3c5e65eca176b6746ce045f",
+    "timestamp": "2021-07-19T21:27:36.000Z",
+    "from": "0xfc33080e56aad6d5856b46f206d2be9d70366ca5",
+    "blockNumber": 12859410
+  },
+  "firstRevertTx": {
+    "hash": "0xe80fe841867ef3fbae5e040551b6644f1399d700d74fe7c71895061a5ed1d4c7",
+    "timestamp": "2021-07-19T14:34:48.000Z",
+    "from": "0x2243c2cfc4d3dc98592b11360abd0fc4f287569b",
+    "blockNumber": 12857596
+  },
+  "windowStart": 1626689100000,
+  "windowEnd": 1626730800000
+}

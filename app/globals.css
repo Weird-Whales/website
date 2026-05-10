@@ -1,0 +1,279 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-pixel: var(--font-press-start);
+  --font-heading: var(--font-press-start);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Weird Whales brand palette - sampled directly from the NFT backgrounds */
+  --color-ww-pink: var(--ww-pink);
+  --color-ww-magenta: var(--ww-magenta);
+  --color-ww-purple: var(--ww-purple);
+  --color-ww-lavender: var(--ww-lavender);
+  --color-ww-teal: var(--ww-teal);
+  --color-ww-yellow: var(--ww-yellow);
+  --color-ww-orange: var(--ww-orange);
+  --color-ww-coral: var(--ww-coral);
+  --color-ww-sky: var(--ww-sky);
+  --color-ww-peach: var(--ww-peach);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root,
+.dark {
+  /* Pure black brand surfaces, lifted dark cards */
+  --background: #000000;
+  --foreground: #f5f5f5;
+  --card: #0c0c0e;
+  --card-foreground: #f5f5f5;
+  --popover: #0c0c0e;
+  --popover-foreground: #f5f5f5;
+  --primary: #fa3c6b; /* NFT "Red" - main CTA */
+  --primary-foreground: #ffffff;
+  --secondary: #1a1a1d;
+  --secondary-foreground: #f5f5f5;
+  --muted: #141416;
+  --muted-foreground: #9a9aa2;
+  --accent: #9f70dd; /* NFT "Purple" - secondary accent */
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #fa3c6b;
+  --chart-1: #fa3c6b;
+  --chart-2: #9f70dd;
+  --chart-3: #67c7d0;
+  --chart-4: #fad221;
+  --chart-5: #fc9144;
+  --radius: 0.5rem;
+  --sidebar: #0c0c0e;
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #fa3c6b;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1a1a1d;
+  --sidebar-accent-foreground: #f5f5f5;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #fa3c6b;
+
+  /* Weird Whales palette - sampled from the NFT backgrounds */
+  --ww-pink: #fa3c6b;       /* NFT "Red" - primary brand red */
+  --ww-magenta: #fd9dcb;    /* NFT "Pink" - pastel pink */
+  --ww-purple: #9f70dd;     /* NFT "Purple" */
+  --ww-lavender: #c7a8ff;   /* derived - lighter purple, no NFT equivalent */
+  --ww-teal: #67c7d0;       /* NFT "Cyan" */
+  --ww-yellow: #fad221;     /* NFT "Yellow" */
+  --ww-orange: #fc9144;     /* NFT "Orange" */
+  --ww-coral: #fa3c6b;      /* alias of --ww-pink (no separate NFT coral) */
+  --ww-sky: #9cb5fe;        /* NFT "Baby Blue" */
+  --ww-peach: #dec5a8;      /* NFT "Peach" - new */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(
+        circle at 12% 18%,
+        rgba(250, 60, 107, 0.1),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 88% 12%,
+        rgba(159, 112, 221, 0.1),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 50% 95%,
+        rgba(103, 199, 208, 0.07),
+        transparent 60%
+      );
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .pixelated {
+    image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+  }
+
+  .font-pixel {
+    font-family: var(--font-pixel), ui-monospace, monospace;
+    letter-spacing: 0;
+  }
+
+  /* Chunky pixel-art shadow for cards/buttons - no blur, hard offset */
+  .pixel-shadow {
+    box-shadow: 4px 4px 0 0 var(--ww-pink);
+  }
+  .pixel-shadow-purple {
+    box-shadow: 4px 4px 0 0 var(--ww-purple);
+  }
+  .pixel-shadow-teal {
+    box-shadow: 4px 4px 0 0 var(--ww-teal);
+  }
+
+  .pixel-border {
+    border: 2px solid var(--foreground);
+  }
+
+  /* Animated rainbow gradient text using the WW palette */
+  .text-gradient-ww {
+    background: linear-gradient(
+      90deg,
+      var(--ww-pink),
+      var(--ww-orange),
+      var(--ww-yellow),
+      var(--ww-teal),
+      var(--ww-purple),
+      var(--ww-pink)
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: ww-gradient-shift 8s linear infinite;
+  }
+}
+
+@keyframes ww-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* ----------- View Transitions (Next 16 + React 19.2) ----------- */
+
+/* Shared-element morph: soften pixel interpolation mid-flight */
+::view-transition-group(.morph) {
+  animation-duration: 420ms;
+}
+::view-transition-image-pair(.morph) {
+  animation-name: ww-via-blur;
+}
+@keyframes ww-via-blur {
+  30% {
+    filter: blur(2px);
+  }
+}
+
+/* Directional slides for prev/next whale navigation */
+::view-transition-old(.nav-forward) {
+  --slide-offset: -60px;
+  animation:
+    150ms ease-in both ww-vt-fade reverse,
+    400ms ease-in-out both ww-vt-slide reverse;
+}
+::view-transition-new(.nav-forward) {
+  --slide-offset: 60px;
+  animation:
+    210ms ease-out 150ms both ww-vt-fade,
+    400ms ease-in-out both ww-vt-slide;
+}
+::view-transition-old(.nav-back) {
+  --slide-offset: 60px;
+  animation:
+    150ms ease-in both ww-vt-fade reverse,
+    400ms ease-in-out both ww-vt-slide reverse;
+}
+::view-transition-new(.nav-back) {
+  --slide-offset: -60px;
+  animation:
+    210ms ease-out 150ms both ww-vt-fade,
+    400ms ease-in-out both ww-vt-slide;
+}
+
+@keyframes ww-vt-fade {
+  from {
+    opacity: 0;
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+@keyframes ww-vt-slide {
+  from {
+    translate: var(--slide-offset);
+  }
+  to {
+    translate: 0;
+  }
+}
+
+/* Anchor the sticky site header so it doesn't slide during transitions */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

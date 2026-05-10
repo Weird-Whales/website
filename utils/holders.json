@@ -1,0 +1,122 @@
+{
+  "generatedAt": "2026-05-09T16:19:59.884Z",
+  "totalSupply": 3350,
+  "burned": 0,
+  "currentHolderCount": 1586,
+  "mintHolderCount": 438,
+  "stillHeldFromMintCount": 227,
+  "diamondHandsCount": 62,
+  "distribution": {
+    "1": 1174,
+    "2-5": 338,
+    "6-10": 40,
+    "11-25": 23,
+    "26+": 11
+  },
+  "topHolders": [
+    {
+      "address": "0x74be0af0bf7254328ddffc09425ff71d64a1a836",
+      "count": 163
+    },
+    {
+      "address": "0x8b7c94bc9ec137d67fbddb203b2814f0f1f9b377",
+      "count": 80
+    },
+    {
+      "address": "0xf61a2d94436451ffd96809fdba924bbe9c768359",
+      "count": 66
+    },
+    {
+      "address": "0x9af98439d2e1a026838846dd6520f1f667a35a4d",
+      "count": 51
+    },
+    {
+      "address": "0xb6c5b1a489606028da263eda28063186f96fa921",
+      "count": 47
+    },
+    {
+      "address": "0x45e639ca9c97ae78feca61512e478dfcff5c95b5",
+      "count": 44
+    },
+    {
+      "address": "0x144c6600127b5f744a32c3c893bf941d60db8837",
+      "count": 35
+    },
+    {
+      "address": "0x0898a4c1e8602a2bc06446ed30b24cd91d65000f",
+      "count": 34
+    },
+    {
+      "address": "0x9abc30f3fe9e2d8fb49bd9d2376a22da2dfd44f1",
+      "count": 33
+    },
+    {
+      "address": "0xaa54fa7c21aa518787208923d8d173f2b22658ff",
+      "count": 30
+    },
+    {
+      "address": "0x72747ce9bfd8699e440e028dcce0d720e8423866",
+      "count": 26
+    },
+    {
+      "address": "0x8d80dac6f8ce44d390a2bd5205c2f39707622089",
+      "count": 24
+    },
+    {
+      "address": "0xe4c268771b4f3c2fbdb403ab89506011d2d2a368",
+      "count": 23
+    },
+    {
+      "address": "0x221f5b91a9759ab37eac75aba86a1c59beef80ea",
+      "count": 21
+    },
+    {
+      "address": "0xbf3e23afd790e34a39d2e5b465f57e0ed74b3b9a",
+      "count": 21
+    },
+    {
+      "address": "0x71d5a459ad6db740a0d66bfcbae61091e438a293",
+      "count": 19
+    },
+    {
+      "address": "0x8133a5dcba30387e88b8dd3b782797ae00defcc0",
+      "count": 19
+    },
+    {
+      "address": "0x81e5cd19323ce7f6b36c9511fbc98d477a188b13",
+      "count": 19
+    },
+    {
+      "address": "0x6186290b28d511bff971631c916244a9fc539cfe",
+      "count": 19
+    },
+    {
+      "address": "0x2c81cee7050c9d03295560851ffde123bdf9696a",
+      "count": 19
+    },
+    {
+      "address": "0x66c7a7348250f453a37cf86410a946f9668de386",
+      "count": 18
+    },
+    {
+      "address": "0x28f2899ad8e04cabb064a2c7093f1077dc4a5e46",
+      "count": 17
+    },
+    {
+      "address": "0xd0b859776667bfea916abad65ab6128b0f9156bf",
+      "count": 17
+    },
+    {
+      "address": "0x7e6aa857810c5d8b1e67143c7fb0548834daf130",
+      "count": 16
+    },
+    {
+      "address": "0x591660bf3ae48260bd21aef41e7dfd795fe4406a",
+      "count": 15
+    }
+  ],
+  "recentActivity": {
+    "last7Transfers": 17,
+    "last30Transfers": 57
+  }
+}
