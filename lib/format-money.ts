@@ -41,7 +41,7 @@ export function formatMoney(
   if (useCompact) {
     formatted = value.toLocaleString("en-US", {
       notation: "compact",
-      maximumFractionDigits: Math.abs(value) >= 1_000_000 ? 1 : 0,
+      maximumFractionDigits: Math.abs(value) >= 1_000_000 ? 1 : 2,
     });
   } else {
     let dec: number;

@@ -357,10 +357,16 @@ function MoneyStatBlock({
         : "text-[var(--ww-yellow)]";
   return (
     <div>
+      {/* Compact (e.g. 1.91K) on phone where space is tight; full precision
+          on tablet+ where the 3-col grid has room to breathe. */}
       <MoneyStatValue
         eth={eth}
         compact
-        className={`font-pixel text-xl sm:text-2xl ${color}`}
+        className={`font-pixel text-xl sm:hidden ${color}`}
+      />
+      <MoneyStatValue
+        eth={eth}
+        className={`hidden font-pixel sm:inline-block sm:text-2xl ${color}`}
       />
       <div className="font-pixel text-[9px] tracking-[0.18em] uppercase text-muted-foreground mt-2">
         {label} (<MoneySymbol />)
