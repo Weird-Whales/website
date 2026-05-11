@@ -154,8 +154,9 @@ export default async function WhalePage({ params }: Props) {
                   <WhaleImage
                     whaleID={n}
                     size={520}
+                    responsive
                     priority
-                    className="relative w-full max-w-[520px] aspect-square h-auto"
+                    className="relative w-full max-w-[520px] aspect-square"
                   />
                 </div>
 
