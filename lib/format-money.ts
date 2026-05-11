@@ -32,7 +32,10 @@ export function formatMoney(
     value = eth * rate;
   }
 
-  const useCompact = compact && Math.abs(value) >= 10_000;
+  // ETH magnitudes are smaller than USD/GBP, so trigger compact earlier
+  // in ETH mode so volume figures like 1,941 don't overflow tight columns.
+  const compactThreshold = currency === "ETH" ? 1_000 : 10_000;
+  const useCompact = compact && Math.abs(value) >= compactThreshold;
 
   let formatted: string;
   if (useCompact) {

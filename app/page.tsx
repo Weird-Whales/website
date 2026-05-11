@@ -170,7 +170,7 @@ export default async function Home() {
               <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
                 To date, Benyamin has kept all earnings in Ethereum and
                 plans to use it as funding for his next venture - none of
-                it spent on physical assets.
+                it has been spent on physical assets.
               </p>
             </div>
           </Reveal>

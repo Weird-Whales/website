@@ -27,7 +27,8 @@ export function MoneyStatValue({
   if (currency === "USD") value = eth * rates.usd;
   if (currency === "GBP") value = eth * rates.gbp;
 
-  if (compact && Math.abs(value) >= 10_000) {
+  const compactThreshold = currency === "ETH" ? 1_000 : 10_000;
+  if (compact && Math.abs(value) >= compactThreshold) {
     // CountUp animates a number, but compact notation is non-numeric. Show
     // the static formatted string instead - animation gracefully degrades.
     return (
