@@ -32,9 +32,9 @@ export default function ProvenancePage() {
               <div className="font-pixel text-[10px] tracking-[0.2em] uppercase text-[var(--ww-teal)] mb-4">
                 · Verifiable
               </div>
-              <h1 className="font-pixel text-3xl md:text-5xl tracking-[0.04em]">
-                PROVENANCE&nbsp;
-                <span className="text-gradient-ww">RECORD</span>
+              <h1 className="font-pixel text-3xl md:text-5xl tracking-[0.04em] leading-[1.1]">
+                <span className="block">PROVENANCE</span>
+                <span className="block text-gradient-ww">RECORD</span>
               </h1>
               <p className="mt-5 text-muted-foreground">
                 Each whale image was hashed before mint. Concatenating those
