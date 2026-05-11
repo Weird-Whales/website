@@ -79,7 +79,7 @@ export default async function StatsPage() {
               />
               <BigStat
                 label="Lifetime volume"
-                value={<Money eth={lifetime.volumeEth} compact />}
+                value={<Money eth={lifetime.volumeEth} />}
                 accent="var(--ww-yellow)"
                 sub={`${lifetime.sales.toLocaleString()} sales`}
               />
