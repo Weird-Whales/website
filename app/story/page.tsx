@@ -297,7 +297,7 @@ export default function StoryPage() {
     <>
       <TopNav />
 
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden">
         {/* HERO */}
         <section className="relative overflow-hidden">
           <div className="mx-auto max-w-5xl px-4 py-20 md:py-28 text-center">

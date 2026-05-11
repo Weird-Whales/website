@@ -9,7 +9,7 @@ export function CurrencySwitcher() {
   const { currency, setCurrency, rates } = useCurrency();
 
   return (
-    <div className="flex items-center gap-3 flex-wrap">
+    <div className="flex items-center justify-center gap-3 flex-wrap md:justify-start">
       <div className="font-pixel text-[9px] tracking-[0.2em] uppercase text-muted-foreground">
         Display in
       </div>

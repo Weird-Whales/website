@@ -65,9 +65,7 @@ export function WhaleHeroGrid({ seed }: { seed: number }) {
     <>
       {/* MOBILE: clean 2x2 grid (the floating layout overflows on phones). */}
       <div className="md:hidden mx-auto w-full max-w-sm">
-        <div className="relative">
-          <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-[var(--ww-pink)]/20 via-[var(--ww-purple)]/15 to-[var(--ww-teal)]/15 blur-2xl" />
-          <div className="relative grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-3">
             {whales.slice(0, 4).map((w, i) => (
               <motion.div
                 key={`m-${w.id}-${i}`}
@@ -108,7 +106,6 @@ export function WhaleHeroGrid({ seed }: { seed: number }) {
                 </AnimatePresence>
               </motion.div>
             ))}
-          </div>
         </div>
       </div>
 

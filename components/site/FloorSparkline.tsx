@@ -45,10 +45,10 @@ export async function FloorSparkline({ days = 90 }: { days?: number }) {
   return (
     <Link
       href="/stats"
-      className="group inline-flex items-center gap-3 text-xs"
+      className="group flex w-full items-center gap-3 text-xs"
       aria-label="See full price history on the stats page"
     >
-      <div className="flex flex-col">
+      <div className="flex shrink-0 flex-col">
         <span className="font-pixel text-[9px] tracking-[0.18em] uppercase text-muted-foreground">
           Avg sale · 90d
         </span>
@@ -57,10 +57,9 @@ export async function FloorSparkline({ days = 90 }: { days?: number }) {
         </span>
       </div>
       <svg
-        width={W}
-        height={H}
         viewBox={`0 0 ${W} ${H}`}
-        className="overflow-visible"
+        preserveAspectRatio="none"
+        className="h-10 min-w-0 flex-1"
       >
         <defs>
           <linearGradient id="spark-area" x1="0" y1="0" x2="0" y2="1">
@@ -76,9 +75,10 @@ export async function FloorSparkline({ days = 90 }: { days?: number }) {
           strokeWidth="1.4"
           strokeLinecap="round"
           strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
         />
       </svg>
-      <ArrowUpRight className="h-3 w-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+      <ArrowUpRight className="h-3 w-3 shrink-0 text-muted-foreground group-hover:text-foreground transition-colors" />
     </Link>
   );
 }
