@@ -60,7 +60,7 @@ export default async function Home() {
         {/* HERO */}
         <section className="relative overflow-hidden">
           <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:py-24 lg:grid-cols-2 lg:gap-8">
-            <div className="space-y-7">
+            <div className="space-y-7 text-center lg:text-left">
               <Reveal>
                 <div className="font-pixel text-[10px] tracking-[0.2em] uppercase text-[var(--ww-pink)]">
                   · est. July 2021
@@ -75,21 +75,20 @@ export default async function Home() {
               </Reveal>
 
               <Reveal delay={0.1}>
-                <p className="max-w-xl text-base text-muted-foreground md:text-lg">
-                  The iconic collection by Benyamin Ahmed at 12, created
-                  over the summer holidays. No bank account, no funding, no
-                  team -
-                  just an Ethereum wallet, coding skills, and a Discord.
-                  Sold out in 11 hours. The open-sourced generator picked
-                  up{" "}
-                  <span className="text-foreground">1,600+ stars</span> and
-                  influenced a wave of pixel collections that came after,
-                  including Gremplin&apos;s CrypToadz.
+                <p className="max-w-xl text-base text-muted-foreground md:text-lg mx-auto lg:mx-0">
+                  The iconic collection created by Benyamin Ahmed at 12
+                  during the summer holidays. No bank account, no funding,
+                  no team - just an Ethereum wallet, coding skills, and a
+                  Discord. Sold out in 11 hours. The open-sourced generator
+                  picked up{" "}
+                  <span className="text-foreground">1,600+ stars</span>{" "}
+                  and influenced a wave of pixel collections, including
+                  Gremplin&apos;s CrypToadz.
                 </p>
               </Reveal>
 
               <Reveal delay={0.15}>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                   <a
                     href={routes.external.openSeaWWHome}
                     target="_blank"
@@ -110,7 +109,7 @@ export default async function Home() {
               </Reveal>
 
               <Reveal delay={0.2}>
-                <div className="max-w-md pt-4 border-t border-white/5">
+                <div className="max-w-md pt-4 border-t border-white/5 mx-auto lg:mx-0">
                   <div className="grid grid-cols-3 gap-4">
                     {stats?.floorPriceEth != null ? (
                       <MoneyStatBlock
@@ -170,7 +169,7 @@ export default async function Home() {
               </h2>
               <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
                 To date, Benyamin has kept all earnings in Ethereum and
-                plans to use it as funding for his next business - none of
+                plans to use it as funding for his next venture - none of
                 it spent on physical assets.
               </p>
             </div>
@@ -195,20 +194,18 @@ export default async function Home() {
         {/* TYPE BREAKDOWN */}
         <section className="mx-auto max-w-6xl px-4 py-20">
           <Reveal>
-            <div className="mb-10 flex items-end justify-between gap-6 flex-wrap">
-              <div>
-                <div className="font-pixel text-[10px] tracking-[0.2em] uppercase text-[var(--ww-pink)] mb-3">
-                  · 01
-                </div>
-                <h2 className="font-pixel text-2xl leading-tight md:text-3xl">
-                  THE FOUR{" "}
-                  <span className="text-[var(--ww-purple)]">SPECIES</span>
-                </h2>
-                <p className="mt-3 max-w-lg text-muted-foreground">
-                  Every whale belongs to one of four types - inspired from
-                  CryptoPunks.
-                </p>
+            <div className="mb-10 text-center md:text-left">
+              <div className="font-pixel text-[10px] tracking-[0.2em] uppercase text-[var(--ww-pink)] mb-3">
+                · 01
               </div>
+              <h2 className="font-pixel text-2xl leading-tight md:text-3xl">
+                THE FOUR{" "}
+                <span className="text-[var(--ww-purple)]">SPECIES</span>
+              </h2>
+              <p className="mt-3 max-w-lg text-muted-foreground mx-auto md:mx-0">
+                Every whale belongs to one of four types - inspired from
+                CryptoPunks.
+              </p>
             </div>
           </Reveal>
 
@@ -231,7 +228,7 @@ export default async function Home() {
         {/* TRAITS PEEK */}
         <section className="mx-auto max-w-6xl px-4 py-20">
           <Reveal>
-            <div className="mb-10">
+            <div className="mb-10 text-center md:text-left">
               <div className="font-pixel text-[10px] tracking-[0.2em] uppercase text-[var(--ww-teal)] mb-3">
                 · 02
               </div>
@@ -239,7 +236,7 @@ export default async function Home() {
                 TRAIT&nbsp;
                 <span className="text-[var(--ww-yellow)]">RARITY</span>
               </h2>
-              <p className="mt-3 max-w-lg text-muted-foreground">
+              <p className="mt-3 max-w-lg text-muted-foreground mx-auto md:mx-0">
                 Each whale has 5 trait categories. Some are everywhere whilst
                 others are rare.
               </p>

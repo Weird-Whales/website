@@ -21,16 +21,18 @@ export function Footer() {
   return (
     <footer className="mt-24 border-t border-white/5 bg-black/40">
       <div className="mx-auto max-w-6xl px-4 py-10">
-        <div className="flex flex-col gap-8 md:flex-row md:justify-between">
+        <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:justify-between md:text-left">
           <div className="space-y-3 max-w-sm">
-            <Logo size={32} />
+            <div className="flex justify-center md:justify-start">
+              <Logo size={32} />
+            </div>
             <p className="text-sm text-muted-foreground">
               3,350 generative pixel-art whales swimming on the Ethereum
               blockchain.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-x-10 gap-y-4">
+          <div className="flex flex-wrap items-start justify-center gap-x-10 gap-y-4 md:justify-start">
             <div>
               <div className="font-pixel text-[10px] tracking-[0.18em] uppercase text-muted-foreground mb-3">
                 Links
@@ -55,7 +57,7 @@ export function Footer() {
               <div className="font-pixel text-[10px] tracking-[0.18em] uppercase text-muted-foreground mb-3">
                 Community
               </div>
-              <ul className="flex gap-2">
+              <ul className="flex justify-center gap-2 md:justify-start">
                 {socials.map(({ href, label, Icon }) => (
                   <li key={href}>
                     <a
@@ -75,8 +77,10 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-white/5 pt-6 space-y-4">
-          <CurrencySwitcher />
-          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+          <div className="flex justify-center md:justify-start">
+            <CurrencySwitcher />
+          </div>
+          <div className="flex flex-col items-center gap-2 text-center md:flex-row md:items-center md:justify-between md:text-left">
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} Weird Whales.
             </p>

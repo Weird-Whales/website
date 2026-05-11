@@ -396,12 +396,7 @@ export function MintReplay({
               ))}
             </div>
           </div>
-          <div
-            className="grid gap-[2px]"
-            style={{
-              gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))`,
-            }}
-          >
+          <div className="grid gap-[2px] grid-cols-[repeat(25,minmax(0,1fr))] sm:grid-cols-[repeat(50,minmax(0,1fr))]">
             {Array.from({ length: ROWS * COLS }, (_, i) => {
               if (i >= TOTAL) return <div key={i} />;
               const tokenId = i;

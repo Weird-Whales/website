@@ -62,26 +62,77 @@ export function WhaleHeroGrid({ seed }: { seed: number }) {
   }
 
   return (
-    <div
-      className="relative aspect-square w-full max-w-[560px] mx-auto"
-      aria-hidden={false}
-    >
-      {/* faint grid backdrop */}
+    <>
+      {/* MOBILE: clean 2x2 grid (the floating layout overflows on phones). */}
+      <div className="md:hidden mx-auto w-full max-w-sm">
+        <div className="relative">
+          <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-[var(--ww-pink)]/20 via-[var(--ww-purple)]/15 to-[var(--ww-teal)]/15 blur-2xl" />
+          <div className="relative grid grid-cols-2 gap-3">
+            {whales.slice(0, 4).map((w, i) => (
+              <motion.div
+                key={`m-${w.id}-${i}`}
+                whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
+                whileTap={{ scale: 0.94, transition: { duration: 0.08 } }}
+                className="relative"
+              >
+                <Link
+                  href={`${routes.internal.whale}${w.id}`}
+                  onClick={() => pet(i)}
+                  className="block"
+                  aria-label={`Open Whale #${w.id}`}
+                >
+                  <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/15 bg-black/60 shadow-[0_8px_30px_-8px_rgba(255,61,110,0.4)]">
+                    {/* No ViewTransition wrapper here — the desktop grid
+                        below already claims whale-${id} names, so wrapping
+                        again would mount the same transition name twice. */}
+                    <Image
+                      src={whaleImageUrl(w.id)}
+                      alt={`Whale #${w.id}`}
+                      width={300}
+                      height={300}
+                      unoptimized
+                      priority={i < 2}
+                      className="pixelated h-full w-full"
+                    />
+                    <div className="absolute bottom-1 left-1 font-pixel text-[8px] tracking-[0.15em] uppercase text-white/80 bg-black/70 rounded px-1 py-0.5">
+                      #{w.id}
+                    </div>
+                  </div>
+                </Link>
+                <AnimatePresence>
+                  {bursts
+                    .filter((b) => b.slotIdx === i)
+                    .map((b) => (
+                      <SparkleBurst key={`m-${b.id}`} />
+                    ))}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* DESKTOP: the floating grid we know and love. */}
       <div
-        className="absolute inset-0 rounded-3xl opacity-[0.18]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
+        className="hidden md:block relative aspect-square w-full max-w-[560px] mx-auto"
+        aria-hidden={false}
+      >
+        {/* faint grid backdrop */}
+        <div
+          className="absolute inset-0 rounded-3xl opacity-[0.18]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
 
-      {/* glow blobs */}
-      <div className="absolute -top-10 -left-10 h-48 w-48 rounded-full bg-[var(--ww-pink)] blur-[80px] opacity-30" />
-      <div className="absolute -bottom-10 -right-10 h-56 w-56 rounded-full bg-[var(--ww-purple)] blur-[90px] opacity-30" />
-      <div className="absolute bottom-1/3 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-[var(--ww-teal)] blur-[80px] opacity-20" />
+        {/* glow blobs */}
+        <div className="absolute -top-10 -left-10 h-48 w-48 rounded-full bg-[var(--ww-pink)] blur-[80px] opacity-30" />
+        <div className="absolute -bottom-10 -right-10 h-56 w-56 rounded-full bg-[var(--ww-purple)] blur-[90px] opacity-30" />
+        <div className="absolute bottom-1/3 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-[var(--ww-teal)] blur-[80px] opacity-20" />
 
-      {whales.map((w, i) => (
+        {whales.map((w, i) => (
         <motion.div
           key={`${w.id}-${i}`}
           className="absolute"
@@ -156,7 +207,8 @@ export function WhaleHeroGrid({ seed }: { seed: number }) {
           </AnimatePresence>
         </motion.div>
       ))}
-    </div>
+      </div>
+    </>
   );
 }
 
