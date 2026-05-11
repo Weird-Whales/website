@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { MobileMenu } from "./MobileMenu";
 import { routes } from "@/utils/routes";
 
 export function TopNav() {
@@ -38,15 +39,8 @@ export function TopNav() {
             OpenSea
           </a>
         </nav>
-        {/* Mobile: just the OpenSea CTA */}
-        <a
-          href={routes.external.openSeaWWHome}
-          target="_blank"
-          rel="noreferrer noopener"
-          className="md:hidden font-pixel text-[10px] tracking-[0.16em] uppercase rounded-md bg-[var(--ww-pink)] px-3 py-1.5 text-white"
-        >
-          OpenSea
-        </a>
+        {/* Mobile: hamburger opens full nav */}
+        <MobileMenu />
       </div>
     </header>
   );

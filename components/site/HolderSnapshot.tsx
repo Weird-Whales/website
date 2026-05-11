@@ -153,7 +153,7 @@ export function HolderSnapshot({ data }: { data: HolderData }) {
                   <span className="shrink-0 font-pixel text-[11px] tabular-nums text-foreground">
                     {h.count}
                   </span>
-                  <span className="shrink-0 font-pixel text-[10px] tabular-nums text-muted-foreground w-12 text-right">
+                  <span className="hidden sm:inline-block shrink-0 font-pixel text-[10px] tabular-nums text-muted-foreground w-12 text-right">
                     {ofSupplyPct}%
                   </span>
                 </div>

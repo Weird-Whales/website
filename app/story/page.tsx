@@ -357,9 +357,9 @@ export default function StoryPage() {
                     across the world of NFTs through my dad&apos;s friend. He
                     had been a big and early investor in Bitcoin, and I found
                     out that he had just spent $27,000 on an NFT known as a
-                    Rare Pepe. I was shocked at the time that someone was
-                    willing to spend that much money on what seemed to me
-                    like just a JPEG. I started learning about the
+                    Rare Pepe. I was shocked at the time to learn that
+                    someone was willing to spend that much money on what
+                    seemed to me like just a JPEG. I started learning about the
                     technology, and it taught me a lot about the future of
                     digital ownership and how it could extend beyond art to
                     power the digital property rights of the entire

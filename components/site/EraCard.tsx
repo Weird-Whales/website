@@ -44,7 +44,7 @@ export function EraCard({
       <div className="grid gap-10 md:grid-cols-[220px_minmax(0,1fr)] lg:gap-14">
         {/* PFP rail */}
         <Reveal>
-          <div className="md:sticky md:top-24 md:self-start">
+          <div className="md:sticky md:top-24 md:self-start text-center md:text-left">
             <div
               className="relative inline-block rounded-full p-1.5"
               style={{ background: color }}
@@ -80,7 +80,7 @@ export function EraCard({
               {dateRange}
             </p>
             {blurb && (
-              <p className="mt-3 text-sm text-muted-foreground max-w-[200px]">
+              <p className="mt-3 text-sm text-muted-foreground max-w-[260px] mx-auto md:mx-0 md:max-w-[200px]">
                 {blurb}
               </p>
             )}

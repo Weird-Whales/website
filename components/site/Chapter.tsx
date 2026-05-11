@@ -33,7 +33,7 @@ export function Chapter({
   const color = ACCENTS[accent];
   return (
     <section className="space-y-5">
-      <div>
+      <div className="text-center md:text-left">
         <div
           className="font-pixel text-[10px] tracking-[0.2em] uppercase mb-2"
           style={{ color }}
@@ -47,7 +47,7 @@ export function Chapter({
           {title}
         </h3>
         {blurb && (
-          <p className="mt-3 text-sm text-muted-foreground max-w-2xl">
+          <p className="mt-3 text-sm text-muted-foreground max-w-2xl mx-auto md:mx-0">
             {blurb}
           </p>
         )}
