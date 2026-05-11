@@ -201,9 +201,21 @@ export function FloorHistoryChart({ days }: { days: SalesDay[] }) {
       </div>
 
       <div className="grid grid-cols-3 gap-3 mb-4">
-        <Stat label="Avg sale" value={format(stats.avg)} accent="var(--ww-teal)" />
-        <Stat label="High" value={format(stats.hi)} accent="var(--ww-yellow)" />
-        <Stat label="Low" value={format(stats.lo)} accent="var(--ww-pink)" />
+        <Stat
+          label="Avg sale"
+          value={format(stats.avg, { compact: true })}
+          accent="var(--ww-teal)"
+        />
+        <Stat
+          label="High"
+          value={format(stats.hi, { compact: true })}
+          accent="var(--ww-yellow)"
+        />
+        <Stat
+          label="Low"
+          value={format(stats.lo, { compact: true })}
+          accent="var(--ww-pink)"
+        />
       </div>
 
       <div className="relative w-full overflow-hidden">
