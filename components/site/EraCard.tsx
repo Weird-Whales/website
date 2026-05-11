@@ -41,7 +41,7 @@ export function EraCard({
 
   return (
     <article className="relative">
-      <div className="grid gap-10 md:grid-cols-[220px_minmax(0,1fr)] lg:gap-14">
+      <div className="grid gap-10 grid-cols-[minmax(0,1fr)] md:grid-cols-[220px_minmax(0,1fr)] lg:gap-14">
         {/* PFP rail */}
         <Reveal>
           <div className="md:sticky md:top-24 md:self-start text-center md:text-left">
@@ -89,7 +89,7 @@ export function EraCard({
 
         {/* Era content */}
         <Reveal delay={0.05}>
-          <div>{children}</div>
+          <div className="min-w-0">{children}</div>
         </Reveal>
       </div>
     </article>
