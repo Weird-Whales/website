@@ -82,20 +82,18 @@ export function WhaleHeroGrid({ seed }: { seed: number }) {
                   aria-label={`Open Whale #${w.id}`}
                 >
                   <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/15 bg-black/60 shadow-[0_8px_30px_-8px_rgba(255,61,110,0.4)]">
-                    <ViewTransition
-                      name={whaleTransitionName(w.id)}
-                      share="morph"
-                    >
-                      <Image
-                        src={whaleImageUrl(w.id)}
-                        alt={`Whale #${w.id}`}
-                        width={300}
-                        height={300}
-                        unoptimized
-                        priority={i < 2}
-                        className="pixelated h-full w-full"
-                      />
-                    </ViewTransition>
+                    {/* No ViewTransition wrapper here — the desktop grid
+                        below already claims whale-${id} names, so wrapping
+                        again would mount the same transition name twice. */}
+                    <Image
+                      src={whaleImageUrl(w.id)}
+                      alt={`Whale #${w.id}`}
+                      width={300}
+                      height={300}
+                      unoptimized
+                      priority={i < 2}
+                      className="pixelated h-full w-full"
+                    />
                     <div className="absolute bottom-1 left-1 font-pixel text-[8px] tracking-[0.15em] uppercase text-white/80 bg-black/70 rounded px-1 py-0.5">
                       #{w.id}
                     </div>
