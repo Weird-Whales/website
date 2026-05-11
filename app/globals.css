@@ -116,29 +116,42 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html,
+  body {
+    /* Prevent any rogue child from forcing horizontal scroll on the whole
+       page (especially on mobile where it'd shift the sticky header). */
+    overflow-x: hidden;
+  }
   html {
     @apply font-sans;
     color-scheme: dark;
   }
   body {
     @apply bg-background text-foreground;
-    background-image:
-      radial-gradient(
-        circle at 12% 18%,
-        rgba(250, 60, 107, 0.1),
-        transparent 55%
-      ),
-      radial-gradient(
-        circle at 88% 12%,
-        rgba(159, 112, 221, 0.1),
-        transparent 55%
-      ),
-      radial-gradient(
-        circle at 50% 95%,
-        rgba(103, 199, 208, 0.07),
-        transparent 60%
-      );
-    background-attachment: fixed;
+  }
+  /* Atmospheric brand gradients — desktop only. On phones they bleed into
+     the hero and read as a pink wash. background-attachment: fixed also
+     misbehaves on iOS Safari. */
+  @media (min-width: 768px) {
+    body {
+      background-image:
+        radial-gradient(
+          circle at 12% 18%,
+          rgba(250, 60, 107, 0.1),
+          transparent 55%
+        ),
+        radial-gradient(
+          circle at 88% 12%,
+          rgba(159, 112, 221, 0.1),
+          transparent 55%
+        ),
+        radial-gradient(
+          circle at 50% 95%,
+          rgba(103, 199, 208, 0.07),
+          transparent 60%
+        );
+      background-attachment: fixed;
+    }
   }
 }
 
