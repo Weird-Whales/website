@@ -330,7 +330,7 @@ function Stat({
         : "text-[var(--ww-yellow)]";
   return (
     <div>
-      <div className={`font-pixel text-2xl ${color}`}>
+      <div className={`font-pixel text-xl sm:text-2xl ${color}`}>
         <CountUp to={value} decimals={decimals} />
       </div>
       <div className="font-pixel text-[9px] tracking-[0.18em] uppercase text-muted-foreground mt-2">
@@ -360,7 +360,7 @@ function MoneyStatBlock({
       <MoneyStatValue
         eth={eth}
         compact
-        className={`font-pixel text-2xl ${color}`}
+        className={`font-pixel text-xl sm:text-2xl ${color}`}
       />
       <div className="font-pixel text-[9px] tracking-[0.18em] uppercase text-muted-foreground mt-2">
         {label} (<MoneySymbol />)
